@@ -23,7 +23,7 @@
 					<div class="page-title-box">
 						<div class="row">
 							<div class="col">
-								<h4 class="page-title">Update Profle</h4>
+								<h4 class="page-title">Update Profile</h4>
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item active">Profile</li>
 								</ol>
@@ -51,21 +51,21 @@
 												<div class="col-md-4">
 													<div class="form-group">
 														<label>Employee Name *</label>
-														<input type="text" value="<?= $users['employee_name'] ?>"
+														<input type="text" name="employee_name" value="<?= $users['employee_name'] ?>"
 															   class="form-control">
 													</div>
 												</div>
 												<div class="col-md-2">
 													<div class="form-group">
 														<label>Employee Designation *</label>
-														<input type="text" value="<?= $users['employee_designation'] ?>"
+														<input type="text" name="employee_designation" value="<?= $users['employee_designation'] ?>"
 															   class="form-control">
 													</div>
 												</div>
 												<div class="col-md-2">
 													<div class="form-group">
 														<label>Employee Salary *</label>
-														<input type="number" value="<?= $users['employee_salary'] ?>"
+														<input type="number" name="employee_salary" value="<?= $users['employee_salary'] ?>"
 															   class="form-control">
 													</div>
 												</div>
