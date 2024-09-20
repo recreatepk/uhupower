@@ -109,13 +109,13 @@
                                                                                     <div class="col-sm-3">
                                                                                         <div class="form-group">
                                                                                             <label>Cost *</label>
-                                                                                            <input type="text" class="form-control" name="service_cost" required="">
+                                                                                            <input type="number" class="form-control" name="service_cost" required="">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Tax *</label>
-                                                                                            <input type="text" class="form-control" name="service_tax" required="">
+                                                                                            <input type="number" class="form-control" name="service_tax" required="">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-1">
@@ -168,19 +168,19 @@
                                                                                     <div class="col-sm-1">
                                                                                         <div class="form-group">
                                                                                             <label>Qty *</label>
-                                                                                            <input type="text" class="form-control" name="product_qty" required="">
+                                                                                            <input type="number" class="form-control" name="product_qty" required="">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Cost *</label>
-                                                                                            <input type="text" class="form-control" name="product_cost" required="">
+                                                                                            <input type="number" class="form-control" name="product_cost" required="">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Tax *</label>
-                                                                                            <input type="text" class="form-control" name="product_tax" required="">
+                                                                                            <input type="number" class="form-control" name="product_tax" required="">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-1">

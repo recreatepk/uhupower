@@ -68,7 +68,7 @@
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Quotation #</th>
+                                                            <th>Quotation</th>
                                                             <th>Customer</th>
 															<th>Service Information</th>
                                                             <th>Status</th>
@@ -186,7 +186,7 @@
                                                                     }
                                                                     if ($qoutation['quotation_order_status'] == 4){
                                                                 ?>
-                                                                        <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Invoice Genrated</span>
+                                                                        <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Invoice Generated</span>
                                                                 <?
                                                                     }
                                                                 ?>
@@ -200,7 +200,7 @@
                                                                                 echo "View Quotes & print";
                                                                             }
                                                                             if ($qoutation['quotation_order_status'] == 3) {
-                                                                                echo "Genrate Invoice";
+                                                                                echo "Generate Invoice";
                                                                             }
                                                                             if ($qoutation['quotation_order_status'] == 2) {
                                                                                 echo "Finalize Quotes & print";

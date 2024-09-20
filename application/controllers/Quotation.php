@@ -117,6 +117,7 @@ class Quotation extends CI_Controller
 		$data['quotes'] = $this->QM->Get_quotation_w_supplier($quotation_id);
 		$data['products'] = $this->QM->Get_quotation_products_w_names($quotation_id);
 		$data['quotation_details'] = $this->QM->Get_quotation_details($quotation_id);
+		$data['rendered_services'] = $this->QSM->Get_quotation_service($quotation_id);
 		$data['employee_data'] = $this->UM->Get_user($data['quotation_details'][0]['employee_id']);
 		$this->load->view('qoutation/quotation', $data);
 	}
@@ -248,21 +249,14 @@ class Quotation extends CI_Controller
 		$this->user_utility->check_permission(45);
 		$data['quotation_data'] = $this->QM->Get_quotation($quotation_id);
 		$data['quotation'] = $data['quotation_data'][0];
-
-//		echo "<pre>";
-//		print_r($data['quotation']);
-//		exit;
-
 		$data['all_suppliers'] = $this->SM->Get_all_supplier();
 		$data['all_products'] = $this->PM->Get_all_products();
 		$data['quote_services'] = $this->QSM->Get_quotation_service($quotation_id);
 		$data['services'] = $this->Ser_M->Get_services();
-
 		$data['all_product_categories'] = $this->PM->Get_all_product_cat();
 		$data['quotation_products'] = $this->QM->Get_quotation_products_w_names($quotation_id);
 		$data['quotation_details_data'] = $this->QM->Get_quotation_details($quotation_id);
 		$data['quotation_details'] = $data['quotation_details_data'][0];
-
 
 		$this->load->view('qoutation/edit_quotation', $data);
 	}

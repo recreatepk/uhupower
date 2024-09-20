@@ -43,7 +43,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                             <div class="page-title-box">
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="page-title">Print Inovice</h4>
+                                        <h4 class="page-title">Print Invoice</h4>
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="<?=base_url()?>Service/view_rendering_services">Services</a></li>
                                             <li class="breadcrumb-item active">Print Service Invoice</li>

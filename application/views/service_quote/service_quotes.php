@@ -71,6 +71,8 @@
 									<?
 									$count = 1;
 									foreach ($quotes as $quote) {
+//										echo "<pre>";
+//										print_r($quote);
 										?>
 										<tr>
 											<td><?= $count ?></td>
@@ -83,7 +85,6 @@
 												}
 												?>
 											</td>
-
 											<td>
 												<div class="accordion" id="accordionExample">
 													<div class="card border mb-1 shadow-none">
@@ -240,20 +241,25 @@
 													</div>
 												</div>
 											</td>
-
 											<td>
 												<?
 												if ($quote['status'] == 1) {
-													echo "<span class='badge badge-pill badge-light'>Draft</span>";
+													?>
+													<span class="badge badge-pill badge-info"><i class="fas fa-lock-open"></i> Draft</span>
+													<?
+												}if ($quote['status'] == 2){
+													?>
+													<span class="badge badge-pill badge-warning"><i class="fas fa-lock"></i> locked</span>
+													<?
+												}if ($quote['status'] == 3){
+													?>
+													<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Finalized</span>
+													<?
 												}
-												if ($quote['status'] == 2) {
-													echo "<span class='badge badge-pill badge-info'>locked</span>";
-												}
-												if ($quote['status'] == 3) {
-													echo "<span class='badge badge-pill badge-warning'>Approve</span>";
-												}
-												if ($quote['status'] == 4) {
-													echo "<span class='badge badge-pill badge-success'>service created</span>";
+												if ($quote['status'] == 4){
+													?>
+													<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Services Completed</span>
+													<?
 												}
 												?>
 											</td>
@@ -263,43 +269,46 @@
 														class="mdi mdi-arrow-down-bold"></i> Options <span
 														class="caret"></span></button>
 												<div class="dropdown-menu">
-													<? if ($quote['status'] == 1) { ?>
-														<a class="dropdown-item"
-														   href="<?= base_url() ?>Service_quote/change_status/<?= $quote['service_quote_id'] ?>/<?= $quote['status'] ?>"><i
-																class="mdi mdi-redo"></i> Lock Qoutes and Print</a>
-													<?
-													} else {
-														if (in_array(98, $_SESSION['module_id']) && $quote['status'] == 2 || $quote['status'] == 3) {
-															?>
-															<a class="dropdown-item"
-															   href="<?= base_url() ?>Service_quote/change_status/<?= $quote['service_quote_id'] ?>/<?= $quote['status'] ?>"><i
-																	class="mdi mdi-check"></i> Finilize Qoutes and Print</a>
-															<?
+													<a class="dropdown-item" href="<?=base_url()?>Service_quote/change_status/<?=$quote['status']?>/<?=$quote['service_quote_id']?>">
+														<i class="fas fa-exchange-alt"></i>
+														<?php
+														if ($quote['status'] == 4) {
+															echo "View Quotes & print";
 														}
-													} ?>
+														if ($quote['status'] == 3) {
+															echo "Generate Invoice";
+														}
+														if ($quote['status'] == 2) {
+															echo "Finalize Quotes & print";
+														}
+														if ($quote['status'] == 1) {
+															echo "Lock Quotes & print";
+														}
+														?>
+													</a>
 													<? if (in_array(96, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/edit_quote/<?= $quote['service_quote_id'] ?>"><i
-																class="mdi mdi-grease-pencil"></i> Edit Qoutes</a>
+																class="mdi mdi-grease-pencil"></i> Edit Quotes</a>
 													<?
 													} elseif (in_array(98, $_SESSION['module_id']) && $quote['status'] == 2) {
 														?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/edit_quote/<?= $quote['service_quote_id'] ?>"><i
-																class="mdi mdi-grease-pencil"></i> Edit Qoutes</a>
+																class="mdi mdi-grease-pencil"></i> Edit Quotes</a>
 														<?
 													}
 													?>
 													<? if (in_array(97, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/delete_quote/<?= $quote['service_quote_id'] ?>"><i
-																class="mdi mdi-delete"></i> Delete Qoutes</a>
+																class="mdi mdi-delete"></i> Delete Quotes</a>
 													<?
 													} elseif (in_array(98, $_SESSION['module_id']) && $quote['status'] == 2) {
 														?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/delete_quote/<?= $quote['service_quote_id'] ?>"><i
-																class="mdi mdi-delete"></i> Delete Qoutes</a>
+																class="mdi mdi-delete"></i> Delete Quotes</a>
 														<?
 													}
 													?>

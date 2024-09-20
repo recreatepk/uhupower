@@ -1,4 +1,6 @@
-<?
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Report_model extends CI_Model {
 
 	public function Get_debt_credit($cus_sup_id,$start_date,$end_date){

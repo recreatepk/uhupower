@@ -1,4 +1,6 @@
-<?
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Expense_model extends CI_Model {
 
 	public function Get_expenses($start_date,$end_date){

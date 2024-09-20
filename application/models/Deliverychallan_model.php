@@ -1,4 +1,6 @@
-<?
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Deliverychallan_model extends CI_Model {
 
 	public function Get_dc_w_count_product($start_date,$end_date){
