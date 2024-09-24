@@ -113,59 +113,6 @@
 												</div>
 
 												<div class="col-sm-12">
-													<div class="col-sm-12"><h5 style="text-align: center;">Choose Services</h5></div>
-													<fieldset style="background: #1761fd30; border-radius: 16px; padding: 20px;">
-														<div class="repeater-custom-show-hide">
-															<div data-repeater-list="service">
-																<div data-repeater-item="">
-																	<div class="col-sm-12">
-
-																		<div class="form-group row">
-																			<div class="col-sm-6">
-																				<label>Select Services needs to be Rendered *</label>
-																				<select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
-																					<?
-																					foreach ($services as $service) {
-																						?>
-																						<option value="<?=$service['service_id']?>"><?=$service['service_name']?></option>
-
-																						<?
-																					}
-																					?>
-																				</select>
-																			</div>
-
-
-																			<div class="col-sm-3">
-																				<div class="form-group">
-																					<label>Cost *</label>
-																					<input type="number" class="form-control" name="service_cost" required>
-																				</div>
-																			</div>
-																			<div class="col-sm-2">
-																				<div class="form-group">
-																					<label>Tax *</label>
-																					<input type="number" class="form-control" name="service_tax" required>
-																				</div>
-																			</div>
-																			<div class="col-sm-1">
-																				<label>Option</label>
-																				<span data-repeater-delete="" class="btn btn-danger btn-sm">
-                                                                                            <span class="far fa-trash-alt mr-1"></span> Delete
-                                                                                        </span>
-																			</div><!--end col-->
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span data-repeater-create="" class="btn btn-info waves-effect waves-light">
-                                                                        <span class="fa fa-plus"></span> Add
-                                                                    </span>
-														</div>
-													</fieldset>
-												</div>
-
-												<div class="col-sm-12">
 													<p><b>Dear Sir,</b></p>
 													<p>UHU Group is one of the leading authorized Importers &
 														Distributors in Pakistan of Perkins (UK) and Cummins Diesel
@@ -289,6 +236,60 @@
 													</div>
 												</fieldset>
 											</div>
+
+											<div class="col-sm-12">
+												<div class="col-sm-12"><h5 style="text-align: center;">Choose Services</h5></div>
+												<fieldset style="background: #1761fd30; border-radius: 16px; padding: 20px;">
+													<div class="repeater-custom-show-hide">
+														<div data-repeater-list="service">
+															<div data-repeater-item="">
+																<div class="col-sm-12">
+
+																	<div class="form-group row">
+																		<div class="col-sm-6">
+																			<label>Select Services needs to be Rendered *</label>
+																			<select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
+																				<?
+																				foreach ($services as $service) {
+																					?>
+																					<option value="<?=$service['service_id']?>"><?=$service['service_name']?></option>
+
+																					<?
+																				}
+																				?>
+																			</select>
+																		</div>
+
+
+																		<div class="col-sm-3">
+																			<div class="form-group">
+																				<label>Cost *</label>
+																				<input type="number" class="form-control" name="service_cost" required>
+																			</div>
+																		</div>
+																		<div class="col-sm-2">
+																			<div class="form-group">
+																				<label>Tax *</label>
+																				<input type="number" class="form-control" name="service_tax" required>
+																			</div>
+																		</div>
+																		<div class="col-sm-1">
+																			<label>Option</label>
+																			<span data-repeater-delete="" class="btn btn-danger btn-sm">
+                                                                                            <span class="far fa-trash-alt mr-1"></span> Delete
+                                                                                        </span>
+																		</div><!--end col-->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<span data-repeater-create="" class="btn btn-info waves-effect waves-light">
+                                                                        <span class="fa fa-plus"></span> Add
+                                                                    </span>
+													</div>
+												</fieldset>
+											</div>
+
 											<div class="row">
 												<div class="col-sm-12 mt-3">
 													<h3 class="text-center"

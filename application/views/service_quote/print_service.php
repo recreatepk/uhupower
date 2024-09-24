@@ -207,6 +207,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																		<td><?= $count ?></td>
 																		<td title="<?= $rendered_service['service_description'] ?>"><?= $rendered_service['service_name'] ?>
 																			<br><?= $rendered_service['service_description'] ?></td>
+																		<td><?= $rendered_service['qty'] ?> %</td>
 																		<td><?= $rendered_service['cost'] ?></td>
 																		<td><?= $rendered_service['tax'] ?></td>
 																		<td>

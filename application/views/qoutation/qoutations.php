@@ -70,7 +70,7 @@
                                                             <th>#</th>
                                                             <th>Quotation</th>
                                                             <th>Customer</th>
-															<th>Service Information</th>
+															<!--<th>Service Information</th>-->
                                                             <th>Status</th>
                                                             <th>Options</th>
                                                         </tr>
@@ -84,24 +84,25 @@
                                                                 <td><?=$count?></td>
                                                                 <td>QT - 0<?=$qoutation['quotation_id']?></td>
                                                                 <td><?=$qoutation['sup_cus_company']?></td>
-																<td>
+
+																<!--<td>
 																	<div class="accordion" id="accordionExample">
 																		<div class="card border mb-1 shadow-none">
 																			<div class="card-header custom-accordion rounded-0"
-																				 id="heading<?= $qoutation['quotation_id'] ?>"
+																				 id="heading<?php /*= $qoutation['quotation_id'] */?>"
 																				 style="background-color: #b7042c !important;">
 																				<a href="" class="text-dark" data-toggle="collapse"
-																				   data-target="#collapse<?= $qoutation['quotation_id'] ?>"
+																				   data-target="#collapse<?php /*= $qoutation['quotation_id'] */?>"
 																				   aria-expanded="true"
-																				   aria-controls="collapse<?= $qoutation['quotation_id'] ?>">
-																					SR - 0<?= $qoutation['quotation_id'] ?>
+																				   aria-controls="collapse<?php /*= $qoutation['quotation_id'] */?>">
+																					SR - 0<?php /*= $qoutation['quotation_id'] */?>
 																					<span style="float:right;">Show more <i
 																							class="mdi mdi-arrow-down"></i></span>
 																				</a>
 																			</div>
-																			<div id="collapse<?= $qoutation['quotation_id'] ?>"
+																			<div id="collapse<?php /*= $qoutation['quotation_id'] */?>"
 																				 class="collapse"
-																				 aria-labelledby="heading<?= $qoutation['quotation_id'] ?>"
+																				 aria-labelledby="heading<?php /*= $qoutation['quotation_id'] */?>"
 																				 data-parent="#accordionExample">
 																				<div class="card-body">
 																					<p class="mb-0">
@@ -118,20 +119,20 @@
 																						</tr>
 																						</thead>
 																						<tbody>
-																						<?
+																						<?/*
 																						$num = 1;
 																						$totalCostAfterTax = 0;
 																						foreach ($quotes_service as $rendered_service) {
 																							if ($rendered_service['quotation_id'] == $qoutation['quotation_id']) {
 
-																								?>
+																								*/?>
 																								<tr>
-																									<td><?= $num ?></td>
-																									<td title="<?= $rendered_service['service_description'] ?>"><?= $rendered_service['service_name'] ?></td>
-																									<td><?= $rendered_service['cost'] ?></td>
-																									<td><?= $rendered_service['tax'] ?></td>
+																									<td><?php /*= $num */?></td>
+																									<td title="<?php /*= $rendered_service['service_description'] */?>"><?php /*= $rendered_service['service_name'] */?></td>
+																									<td><?php /*= $rendered_service['cost'] */?></td>
+																									<td><?php /*= $rendered_service['tax'] */?></td>
 																									<td>
-																										<?
+																										<?/*
 
 																										if ($rendered_service['tax'] == 0) {
 																											$taxPercentage = 1;
@@ -143,14 +144,14 @@
 																										$costAfterTax = $costBeforeTax + $taxAmount;
 																										$totalCostAfterTax += $costAfterTax;
 																										echo $costAfterTax;
-																										?>
+																										*/?>
 																									</td>
 																								</tr>
-																								<?
+																								<?/*
 																								$num++;
 																							}
 																						}
-																						?>
+																						*/?>
 
 																						</tbody>
 																						<tfoot>
@@ -159,7 +160,7 @@
 																								colspan="4" class="text-center"><b>Total</b>
 																							</td>
 																							<td style="border-bottom: 3px double black; border-top: 1px solid black;">
-																								<b><?= $totalCostAfterTax ?></b></td>
+																								<b><?php /*= $totalCostAfterTax */?></b></td>
 																						</tr>
 																						</tfoot>
 																					</table>
@@ -168,7 +169,8 @@
 																			</div>
 																		</div>
 																	</div>
-																</td>
+																</td>-->
+
                                                                 <td>
                                                                 <?
                                                                     if ($qoutation['quotation_order_status'] == 1) {

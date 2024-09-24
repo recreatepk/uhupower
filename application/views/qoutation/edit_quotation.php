@@ -234,8 +234,13 @@
                                                     </div>
 
 													<div class="col-sm-12">
-														<div class="col-sm-12"><h5 style="text-align: center;">Update
-																Services</h5></div>
+														<div class="col-sm-12">
+															<h5 style="text-align: center;">Update Services</h5>
+														</div>
+
+														<?
+															if (!empty($quote_services)) {
+														?>
 														<fieldset
 															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
 															<div class="repeater-custom-show-hide">
@@ -305,10 +310,84 @@
 																</div>
 																<span data-repeater-create=""
 																	  class="btn btn-info waves-effect waves-light">
-                                                                            <span class="fa fa-plus"></span> Add
-                                                                        </span>
+                                                                      <span class="fa fa-plus"></span> Add
+																</span>
 															</div>
 														</fieldset>
+														<?
+															} else {
+														?>
+
+														<fieldset
+															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
+															<div class="repeater-custom-show-hide">
+																<div data-repeater-list="service">
+																	<div data-repeater-item="">
+																		<div class="col-sm-12">
+
+																			<div class="form-group row">
+																				<div class="col-sm-6">
+																					<label>Select Services needs to be
+																						Rendered *</label>
+																					<select
+																						class="form-control custom-select"
+																						style="width: 100%; height:36px;"
+																						name="render_service_id"
+																						required>
+																						<?
+																						foreach ($services as $service) {
+																							?>
+																							<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
+																								value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
+
+																							<?
+																						}
+																						?>
+																					</select>
+																				</div>
+
+
+																				<div class="col-sm-3">
+																					<div class="form-group">
+																						<label>Cost *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="cost"
+																							   value="<?= $service_quote['cost'] ?>"
+																							   required="">
+																					</div>
+																				</div>
+																				<div class="col-sm-2">
+																					<div class="form-group">
+																						<label>Tax *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="tax"
+																							   value="<?= $service_quote['tax'] ?>"
+																							   required="">
+																					</div>
+																				</div>
+																				<div class="col-sm-1">
+																					<label>Option</label>
+																					<span data-repeater-delete=""
+																						  class="btn btn-danger btn-sm">
+                                                                                                <span
+																									class="far fa-trash-alt mr-1"></span> Delete
+                                                                                            </span>
+																				</div><!--end col-->
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<span data-repeater-create=""
+																	  class="btn btn-info waves-effect waves-light">
+                                                                      <span class="fa fa-plus"></span> Add
+																</span>
+															</div>
+														</fieldset>
+														<?
+															}
+														?>
 													</div>
 
                                                     <div class="row">

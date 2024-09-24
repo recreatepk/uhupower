@@ -29,6 +29,9 @@ class Complaint extends CI_Controller {
     		$end_date = date('Y/m/d',strtotime($current_date));
 		}
 		$data['complaints'] = $this->CM->Get_complaints($start_date,$end_date);
+//		echo "<pre>";
+//		print_r($data['complaints']);
+//		exit;
 		$this->load->view('complaint/complaints',$data);
 	}
 

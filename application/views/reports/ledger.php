@@ -43,7 +43,7 @@
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label>Select <?=$retVal = ($check == 2) ? 'Supplier' : 'Customer' ;?>*</label>
+                                                    <label>Select <?=$retVal = ($check == 1) ? 'Supplier' : 'Customer' ;?>*</label>
                                                     <select class="form-control custom-select" style="width: 100%; height:36px;" name="supplier_id">
                                                         <? 
                                                         if($check == 1){

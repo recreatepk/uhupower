@@ -113,6 +113,7 @@
 																	<tr>
 																		<th>#</th>
 																		<th>Service Name</th>
+																		<th>Quantity</th>
 																		<th>Cost</th>
 																		<th>Tax</th>
 																		<th>Total</th>
@@ -124,13 +125,14 @@
 																	$totalCostAfterTax = 0;
 																	foreach ($quotes_service as $rendered_service) {
 																		if ($rendered_service['service_quote_id'] == $quote['service_quote_id']) {
-
+																			$total_cost = ($rendered_service['cost'] * $rendered_service['qty']);
 																			?>
 																			<tr>
 																				<td><?= $num ?></td>
 																				<td title="<?= $rendered_service['service_description'] ?>"><?= $rendered_service['service_name'] ?></td>
+																				<td><?= $rendered_service['qty'] ?></td>
 																				<td><?= $rendered_service['cost'] ?></td>
-																				<td><?= $rendered_service['tax'] ?></td>
+																				<td><?= $rendered_service['tax'] ?> %</td>
 																				<td>
 																					<?
 
@@ -139,7 +141,7 @@
 																					} else {
 																						$taxPercentage = $rendered_service['tax'];
 																					}
-																					$costBeforeTax = $rendered_service['cost'];
+																					$costBeforeTax = $total_cost;
 																					$taxAmount = ($costBeforeTax * $taxPercentage) / 100;
 																					$costAfterTax = $costBeforeTax + $taxAmount;
 																					$totalCostAfterTax += $costAfterTax;
@@ -157,7 +159,7 @@
 																	<tfoot>
 																	<tr>
 																		<td style="border-bottom: 1px solid black;border-top: 1px solid black;"
-																			colspan="4" class="text-center"><b>Total</b>
+																			colspan="5" class="text-center"><b>Total</b>
 																		</td>
 																		<td style="border-bottom: 3px double black; border-top: 1px solid black;">
 																			<b><?= $totalCostAfterTax ?></b></td>

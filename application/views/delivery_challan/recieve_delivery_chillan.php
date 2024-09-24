@@ -90,7 +90,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Product</th>
-                                                                <th>Receivable Quntity</th>
+                                                                <th>Receivable Quantity</th>
                                                                 <th>Received Quantity</th>
                                                                 <th>Receive</th>
                                                             </tr>
@@ -172,7 +172,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary px-4">Recieve Items</button>
+                                    <button type="submit" class="btn btn-primary px-4">Receive Items</button>
                                 </div>
                             </div>
                         </form>
@@ -194,7 +194,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                 </div>
                                
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary px-4">Recieve Items</button>
+                                    <button type="submit" class="btn btn-primary px-4">Receive Items</button>
                                 </div>
                             </div>
                         </form>

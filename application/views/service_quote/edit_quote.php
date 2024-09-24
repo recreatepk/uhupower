@@ -114,22 +114,115 @@
 												</div>
 												<div class="col-sm-4">
 													<label>Select Date *</label>
+													<?php
+													// Extract only the date part from the full datetime string
+													$service_quotes_date = date('Y-m-d', strtotime($service_quotes[0]['date']));
+													?>
 													<div class="col-sm-12">
 														<input class="form-control" name="date" type="date"
-															   value="<?= $service_quotes[0]['date'] ?>"
+															   value="<?= $service_quotes_date ?>"
 															   id="example-date-input" required>
 													</div>
 												</div>
 												<div class="col-sm-12">
 													<div class="col-sm-12"><h5 style="text-align: center;">Update
 															Services</h5></div>
-													<fieldset
-														style="background: #1761fd30;border-radius: 16px;padding: 20px;">
-														<div class="repeater-custom-show-hide">
-															<div data-repeater-list="service">
-																<?
-																foreach ($quote_services as $service_quote) {
+													<?
+													if (!empty($quote_services)) {
+														?>
+														<fieldset
+															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
+															<div class="repeater-custom-show-hide">
+																<div data-repeater-list="service">
+																	<?
+																	foreach ($quote_services as $service_quote) {
+																		?>
+																		<div data-repeater-item="">
+																			<div class="col-sm-12">
+
+																				<div class="form-group row">
+																					<div class="col-sm-5">
+																						<label>Select Services needs to
+																							be
+																							Rendered *</label>
+																						<select
+																							class="form-control custom-select"
+																							style="width: 100%; height:36px;"
+																							name="render_service_id"
+																							required>
+																							<?
+																							foreach ($services as $service) {
+																								?>
+																								<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
+																									value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
+
+																								<?
+																							}
+																							?>
+																						</select>
+																					</div>
+
+
+																					<div class="col-sm-2">
+																						<div class="form-group">
+																							<label>Qty *</label>
+																							<input type="text"
+																								   class="form-control"
+																								   name="qty"
+																								   value="<?= $service_quote['qty'] ?>"
+																								   required="">
+																						</div>
+																					</div>
+																					<div class="col-sm-2">
+																						<div class="form-group">
+																							<label>Cost *</label>
+																							<input type="text"
+																								   class="form-control"
+																								   name="cost"
+																								   value="<?= $service_quote['cost'] ?>"
+																								   required="">
+																						</div>
+																					</div>
+																					<div class="col-sm-2">
+																						<div class="form-group">
+																							<label>Tax *</label>
+																							<input type="text"
+																								   class="form-control"
+																								   name="tax"
+																								   value="<?= $service_quote['tax'] ?>"
+																								   required="">
+																						</div>
+																					</div>
+																					<div class="col-sm-1">
+																						<label>Option</label>
+																						<span data-repeater-delete=""
+																							  class="btn btn-danger btn-sm">
+                                                                                                <span
+																									class="far fa-trash-alt mr-1"></span> Delete
+                                                                                            </span>
+																					</div><!--end col-->
+																				</div>
+																			</div>
+																		</div>
+																		<?
+																	}
 																	?>
+																</div>
+																<span data-repeater-create=""
+																	  class="btn btn-info waves-effect waves-light">
+                                                                            <span class="fa fa-plus"></span> Add
+                                                                        </span>
+															</div>
+														</fieldset>
+														<?
+													} else {
+														?>
+
+
+														<fieldset
+															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
+															<div class="repeater-custom-show-hide">
+																<div data-repeater-list="service">
 																	<div data-repeater-item="">
 																		<div class="col-sm-12">
 
@@ -186,33 +279,35 @@
 																			</div>
 																		</div>
 																	</div>
-																	<?
-																}
-																?>
+																</div>
+																<span data-repeater-create=""
+																	  class="btn btn-info waves-effect waves-light">
+                                                                      <span class="fa fa-plus"></span> Add
+																</span>
 															</div>
-															<span data-repeater-create=""
-																  class="btn btn-info waves-effect waves-light">
-                                                                            <span class="fa fa-plus"></span> Add
-                                                                        </span>
-														</div>
-													</fieldset>
+														</fieldset>
+														<?
+													}
+													?>
 												</div>
+
 												<div class="col-sm-12">
 													<div class="col-sm-12"><h5 style="text-align: center;">Update
 															Parts</h5></div>
-													<fieldset
-														style="background: #1761fd30;border-radius: 16px;padding: 20px;margin-top: 10px;">
-														<div class="repeater-custom-show-hide">
-															<div data-repeater-list="products">
-																<?
-																foreach ($service_quote_products as $service_quote_product) {
-																	if ($service_quote_product['service_quote_id'] != '') {
+													<?
+													if (!empty($service_quote_products)) {
+														?>
+														<fieldset
+															style="background: #1761fd30;border-radius: 16px;padding: 20px;margin-top: 10px;">
+															<div class="repeater-custom-show-hide">
+																<div data-repeater-list="products">
+																	<?
+																	foreach ($service_quote_products as $service_quote_product) {
 																		?>
-
 																		<div data-repeater-item="">
 																			<div class="col-sm-12">
 																				<div class="form-group row">
-																					<div class="col-sm-6">
+																					<div class="col-sm-5">
 																						<label>Select Parts as Need
 																							*</label>
 																						<select
@@ -240,7 +335,7 @@
 																							?>
 																						</select>
 																					</div>
-																					<div class="col-sm-1">
+																					<div class="col-sm-2">
 																						<div class="form-group">
 																							<label>Qty *</label>
 																							<input type="text"
@@ -282,90 +377,102 @@
 																				</div>
 																			</div>
 																		</div>
-
 																		<?
-																	} else {
-																		?>
-																		<div data-repeater-item="">
-																			<div class="col-sm-12">
-																				<div class="form-group row">
-																					<div class="col-sm-6">
-																						<label>Select Parts as Need
-																							*</label>
-																						<select
-																							class="form-control custom-select product-select"
-																							style="width: 100%; height:36px;"
-																							name="product_id" required>
-																							<?
-																							foreach ($product_categories as $product_category) {
-																								?>
-																								<optgroup
-																									label="<?= $product_category['product_category_name'] ?>">
-																									<?
-																									foreach ($products as $product) {
-																										if ($product['product_category_id'] == $product_category['product_category_id']) {
-																											?>
-																											<option
-																												value="<?= $product['product_id'] ?>"><?= $product['product_name'] ?> </option>
-																											<?
-																										}
-																									}
-																									?>
-																								</optgroup>
-																								<?
-																							}
+																	}
+																	?>
+																</div>
+																<span data-repeater-create=""
+																	  class="btn btn-info waves-effect waves-light">
+                                                                            <span class="fa fa-plus"></span> Add
+                                                                        </span>
+															</div>
+														</fieldset>
+														<?
+													} else {
+														?>
+														<fieldset
+															style="background: #1761fd30;border-radius: 16px;padding: 20px;margin-top: 10px;">
+															<div class="repeater-custom-show-hide">
+																<div data-repeater-list="products">
+																	<div data-repeater-item="">
+																		<div class="col-sm-12">
+																			<div class="form-group row">
+																				<div class="col-sm-6">
+																					<label>Select Parts as Need
+																						*</label>
+																					<select
+																						class="form-control custom-select product-select"
+																						style="width: 100%; height:36px;"
+																						name="product_id" required>
+																						<?
+																						foreach ($product_categories as $product_category) {
 																							?>
-																						</select>
+																							<optgroup
+																								label="<?= $product_category['product_category_name'] ?>">
+																								<?
+																								foreach ($products as $product) {
+																									if ($product['product_category_id'] == $product_category['product_category_id']) {
+																										?>
+																										<option
+																											value="<?= $product['product_id'] ?>"><?= $product['product_name'] ?> </option>
+																										<?
+																									}
+																								}
+																								?>
+																							</optgroup>
+																							<?
+																						}
+																						?>
+																					</select>
+																				</div>
+																				<div class="col-sm-1">
+																					<div class="form-group">
+																						<label>Qty *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="qty"
+																							   required="">
 																					</div>
-																					<div class="col-sm-1">
-																						<div class="form-group">
-																							<label>Qty *</label>
-																							<input type="text"
-																								   class="form-control"
-																								   name="qty"
-																								   required="">
-																						</div>
+																				</div>
+																				<div class="col-sm-2">
+																					<div class="form-group">
+																						<label>Cost *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="cost"
+																							   required="">
 																					</div>
-																					<div class="col-sm-2">
-																						<div class="form-group">
-																							<label>Cost *</label>
-																							<input type="text"
-																								   class="form-control"
-																								   name="cost"
-																								   required="">
-																						</div>
+																				</div>
+																				<div class="col-sm-2">
+																					<div class="form-group">
+																						<label>Tax *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="tax"
+																							   required="">
 																					</div>
-																					<div class="col-sm-2">
-																						<div class="form-group">
-																							<label>Tax *</label>
-																							<input type="text"
-																								   class="form-control"
-																								   name="tax"
-																								   required="">
-																						</div>
-																					</div>
-																					<div class="col-sm-1">
-																						<label>Option</label>
-																						<span data-repeater-delete=""
-																							  class="btn btn-danger btn-sm">
+																				</div>
+																				<div class="col-sm-1">
+																					<label>Option</label>
+																					<span data-repeater-delete=""
+																						  class="btn btn-danger btn-sm">
                                                                                             <span
 																								class="far fa-trash-alt mr-1"></span> Delete
                                                                                         </span>
-																					</div><!--end col-->
-																				</div>
+																				</div><!--end col-->
 																			</div>
 																		</div>
-																		<?
-																	}
-																}
-																?>
-															</div>
-															<span data-repeater-create=""
-																  class="btn btn-info waves-effect waves-light">
+																	</div>
+																</div>
+																<span data-repeater-create=""
+																	  class="btn btn-info waves-effect waves-light">
                                                                             <span class="fa fa-plus"></span> Add
                                                                         </span>
-														</div>
-													</fieldset>
+															</div>
+														</fieldset>
+														<?
+													}
+													?>
 												</div>
 												<div class="col-sm-12" style="margin-top: 20px">
 													<p style="text-decoration: underline;"><b>Terms & Conditions:</b>

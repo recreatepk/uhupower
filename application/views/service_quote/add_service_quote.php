@@ -112,7 +112,7 @@
                                                                             <div class="col-sm-12">
                                                                                 
                                                                                 <div class="form-group row">
-                                                                                    <div class="col-sm-6">
+                                                                                    <div class="col-sm-5">
                                                                                         <label>Select Services needs to be Rendered *</label>
                                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
                                                                                             <?
@@ -127,16 +127,22 @@
                                                                                     </div>
                                                                                     
                                                                                     
-                                                                                    <div class="col-sm-3">
+                                                                                    <div class="col-sm-2">
                                                                                         <div class="form-group">
-                                                                                            <label>Cost *</label>
-                                                                                            <input type="text" class="form-control" name="service_cost" required="">
+                                                                                            <label>Qty *</label>
+                                                                                            <input type="text" class="form-control" name="service_qty" required="">
                                                                                         </div>
                                                                                     </div>
+																					<div class="col-sm-2">
+																						<div class="form-group">
+																							<label>Cost *</label>
+																							<input type="text" class="form-control" name="service_cost" required="">
+																						</div>
+																					</div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Tax *</label>
-                                                                                            <input type="text" class="form-control" name="service_tax" required="">
+                                                                                            <input type="text" class="form-control" name="service_tax" required="" placeholder="%">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-1">
@@ -163,7 +169,7 @@
                                                                         <div data-repeater-item="">
                                                                             <div class="col-sm-12">
                                                                                 <div class="form-group row">
-                                                                                    <div class="col-sm-6">
+                                                                                    <div class="col-sm-5">
                                                                                         <label>Select Parts as Need *</label>
                                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="product_id" required>
                                                                                         <?
@@ -186,7 +192,7 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     
-                                                                                    <div class="col-sm-1">
+                                                                                    <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Qty *</label>
                                                                                             <input type="text" class="form-control" name="product_qty" required="">
@@ -201,7 +207,7 @@
                                                                                     <div class="col-sm-2">
                                                                                         <div class="form-group">
                                                                                             <label>Tax *</label>
-                                                                                            <input type="text" class="form-control" name="product_tax" required="">
+                                                                                            <input type="text" class="form-control" name="product_tax" required="" placeholder="%">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-1">

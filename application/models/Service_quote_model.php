@@ -119,6 +119,16 @@ class Service_quote_model extends CI_Model
 			->update('service_quote_product', $service_quote_product);
 	}
 
+	public function Check_product_exists($product_id, $service_quote_id)
+	{
+		$this->db->where('product_id', $product_id);
+		$this->db->where('service_quote_id', $service_quote_id);
+		$query = $this->db->get('service_quote_product');
+
+		// Return true if the product exists, otherwise false
+		return $query->num_rows() > 0;
+	}
+
 	public function Insert_service_quote_service($service_quote_service)
 	{
 		$this->db->insert('service_quote_service', $service_quote_service);

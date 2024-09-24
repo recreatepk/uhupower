@@ -119,6 +119,7 @@ class Service_quote extends CI_Controller
 		$service_quote_service['service_quote_id'] = $service_quote_details['service_quote_id'];
 		foreach ($data['service'] as $service) {
 			$service_quote_service['render_service_id'] = $service['service_id'];
+			$service_quote_service['qty'] = $service['service_qty'];
 			$service_quote_service['cost'] = $service['service_cost'];
 			$service_quote_service['tax'] = $service['service_tax'];
 			$this->SQM->Insert_service_quote_service($service_quote_service);
@@ -166,18 +167,30 @@ class Service_quote extends CI_Controller
 		$this->SQM->Update_service_quote_details($service_quote_details, $service_quote_id);
 
 		$service_quote_product['service_quote_id'] = $service_quote_id;
+
 		foreach ($data['products'] as $product) {
-			$service_quote_product['product_id'] = $product['id'];
+			$service_quote_product['product_id'] = $product['product_id'];
 			$service_quote_product['qty'] = $product['qty'];
 			$service_quote_product['cost'] = $product['cost'];
 			$service_quote_product['tax'] = $product['tax'];
-			$this->SQM->Update_service_quote_products($service_quote_product, $service_quote_id);
+
+			// Check if product exists in the database
+			$existing_product = $this->SQM->Check_product_exists($service_quote_product['product_id'], $service_quote_id);
+
+			if ($existing_product) {
+				// Update the product if it exists
+				$this->SQM->Update_service_quote_products($service_quote_product, $service_quote_id);
+			} else {
+				// Insert the product if it doesn't exist
+				$this->SQM->Insert_service_quote_products($service_quote_product);
+			}
 		}
 
 
 		$service_quote_service['service_quote_id'] = $service_quote_id;
 		foreach ($data['service'] as $service) {
 			$service_quote_service['render_service_id'] = $service['render_service_id'];
+			$service_quote_service['qty'] = $service['qty'];
 			$service_quote_service['cost'] = $service['cost'];
 			$service_quote_service['tax'] = $service['tax'];
 			$this->SQM->Update_service_quote_service($service_quote_service, $service_quote_id);

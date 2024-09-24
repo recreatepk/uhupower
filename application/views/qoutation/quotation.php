@@ -323,8 +323,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														<tr>
 															<th>#</th>
 															<th>Items</th>
-															<th>QTY</th>
-															<th>Rate</th>
+															<th>Cost</th>
 															<th>Tax</th>
 															<th>Total</th>
 														</tr><!--end tr-->
@@ -336,17 +335,20 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														$tax_inclusive = 0;
 														$sub_total = 0;
 														foreach ($rendered_services as $rendered_service) {
-
 															?>
 															<tr>
 																<td><?=$count?></td>
-																<td title="<?=$rendered_service['service_description']?>"><?=$rendered_service['service_name']?></td>
-																<td><?=$rendered_service['service_cost']?></td>
-																<td><?=$rendered_service['service_tax']?></td>
+																<td title="<?=$rendered_service['service_description']?>"><?=$rendered_service['service_name']?>
+																	<br>
+																	<span
+																		class="text-muted"><?= $rendered_service['service_description'] ?></span>
+																</td>
+																<td><?=$rendered_service['cost']?></td>
+																<td><?=$rendered_service['tax']?></td>
 																<td>
 																	<?
-																	$taxed_amount = ($rendered_service['service_cost'])*($rendered_service['service_tax']/100);
-																	$tax_inclusive = $taxed_amount+$rendered_service['service_cost'];
+																	$taxed_amount = ($rendered_service['cost']) * ($rendered_service['tax'] / 100);
+																	$tax_inclusive = $taxed_amount + $rendered_service['cost'];
 																	echo $tax_inclusive;
 
 																	$sub_total += $tax_inclusive;
@@ -360,7 +362,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
 
 														<tr class="">
-															<th colspan="4" class="border-0"></th>
+															<th colspan="3" class="border-0"></th>
 															<td class="border-0 font-14"><b>Sub Total</b></td>
 															<td><?= $sub_total ?></td>
 														</tr><!--end tr-->

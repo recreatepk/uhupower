@@ -118,6 +118,9 @@ class Quotation extends CI_Controller
 		$data['products'] = $this->QM->Get_quotation_products_w_names($quotation_id);
 		$data['quotation_details'] = $this->QM->Get_quotation_details($quotation_id);
 		$data['rendered_services'] = $this->QSM->Get_quotation_service($quotation_id);
+//		echo "<pre>";
+//		print_r($data['rendered_services']);
+//		exit;
 		$data['employee_data'] = $this->UM->Get_user($data['quotation_details'][0]['employee_id']);
 		$this->load->view('qoutation/quotation', $data);
 	}
