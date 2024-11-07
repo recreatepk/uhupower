@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <? $this->view('inc/header.php'); ?>
+   <?php $this->view('inc/header.php'); ?>
    <title>User Groups - UHU</title>
     <body class="dark-sidenav">
         <!-- Left Sidenav -->
-       <? $this->view('inc/sidebar.php'); ?>
+       <?php $this->view('inc/sidebar.php'); ?>
         <!-- end left-sidenav-->
         
 
         <div class="page-wrapper">
             <!-- Top Bar Start -->
-            <? $this->view('inc/nav_bar.php'); ?>
+            <?php $this->view('inc/nav_bar.php'); ?>
             <!-- Top Bar End -->
 
             <!-- Page Content-->
@@ -51,7 +51,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <? $count = 1;
+                                                            <?php $count = 1;
                                                             foreach ($user_groups as $user_group){
                                                             ?>
                                                              <tr>
@@ -136,7 +136,7 @@
 
                 </div><!-- container -->
 
-               <?$this->view('inc/footer_text.php');?>
+               <?php $this->view('inc/footer_text.php');?>
             </div>
             <!-- end page content -->
         </div>
@@ -144,7 +144,7 @@
 
         
 
-<?$this->view('inc/footer.php');?>
+<?php $this->view('inc/footer.php');?>
 <?
 if($this->session->flashdata('del')){
 ?>

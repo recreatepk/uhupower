@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <? $this->view('inc/header.php'); ?>
+   <?php $this->view('inc/header.php'); ?>
    <title>Client Ledger - UHU</title>
     <body class="dark-sidenav">
         <!-- Left Sidenav -->
-       <? $this->view('inc/sidebar.php'); ?>
+       <?php $this->view('inc/sidebar.php'); ?>
         <!-- end left-sidenav-->
         
 
         <div class="page-wrapper">
             <!-- Top Bar Start -->
-            <? $this->view('inc/nav_bar.php'); ?>
+            <?php $this->view('inc/nav_bar.php'); ?>
             <!-- Top Bar End -->
 
             <!-- Page Content-->
@@ -102,7 +102,7 @@
 
                 </div><!-- container -->
 
-               <?$this->view('inc/footer_text.php');?>
+               <?php $this->view('inc/footer_text.php');?>
             </div>
             <!-- end page content -->
         </div>
@@ -110,7 +110,7 @@
 
         
 
-<?$this->view('inc/footer.php');?>
+<?php $this->view('inc/footer.php');?>
 <script>
   // Get the current page or section identifier (you can customize this part)
   var currentPage = "Accounts"; // Example: If you're on 1, set it to "1"

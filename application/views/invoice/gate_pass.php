@@ -21,17 +21,17 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 <!DOCTYPE html>
 <html lang="en">
 
-   <? $this->view('inc/header.php'); ?>
+   <?php $this->view('inc/header.php'); ?>
    <title>Gate Pass - UHU</title>
     <body class="dark-sidenav">
         <!-- Left Sidenav -->
-       <? $this->view('inc/sidebar.php'); ?>
+       <?php $this->view('inc/sidebar.php'); ?>
         <!-- end left-sidenav-->
         
 
         <div class="page-wrapper">
             <!-- Top Bar Start -->
-            <? $this->view('inc/nav_bar.php'); ?>
+            <?php $this->view('inc/nav_bar.php'); ?>
             <!-- Top Bar End -->
 
             <!-- Page Content-->
@@ -185,7 +185,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                     
                 </div><!-- container -->
 
-               <?$this->view('inc/footer_text.php');?>
+               <?php $this->view('inc/footer_text.php');?>
             </div>
             <!-- end page content -->
         </div>
@@ -193,7 +193,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
         
 
-<?$this->view('inc/footer.php');?>
+<?php $this->view('inc/footer.php');?>
 <?
 if($this->session->flashdata('status')){
 ?>

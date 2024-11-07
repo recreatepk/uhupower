@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<? $this->view('inc/header.php'); ?>
+<?php $this->view('inc/header.php'); ?>
 <title>User Profile - UHU</title>
 <body class="dark-sidenav">
 <!-- Left Sidenav -->
-<? $this->view('inc/sidebar.php'); ?>
+<?php $this->view('inc/sidebar.php'); ?>
 <!-- end left-sidenav-->
 
 
 <div class="page-wrapper">
 	<!-- Top Bar Start -->
-	<? $this->view('inc/nav_bar.php'); ?>
+	<?php $this->view('inc/nav_bar.php'); ?>
 	<!-- Top Bar End -->
 
 	<!-- Page Content-->
@@ -129,14 +129,14 @@
 
 		</div><!-- container -->
 
-		<? $this->view('inc/footer_text.php'); ?>
+		<?php $this->view('inc/footer_text.php'); ?>
 	</div>
 	<!-- end page content -->
 </div>
 <!-- end page-wrapper -->
 
 
-<? $this->view('inc/footer.php'); ?>
+<?php $this->view('inc/footer.php'); ?>
 <?
 if ($this->session->flashdata('edit')) {
 	?>

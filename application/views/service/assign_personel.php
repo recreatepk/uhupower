@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <? $this->view('inc/header.php'); ?>
+   <?php $this->view('inc/header.php'); ?>
    <title>Assignment - UHU</title>
     <body class="dark-sidenav">
         <!-- Left Sidenav -->
         <link href="<?=base_url()?>assets/plugins/dragula/dragula.min.css" rel="stylesheet" type="text/css" />
-       <? $this->view('inc/sidebar.php'); ?>
+       <?php $this->view('inc/sidebar.php'); ?>
         <!-- end left-sidenav-->
         
 
         <div class="page-wrapper">
             <!-- Top Bar Start -->
-            <? $this->view('inc/nav_bar.php'); ?>
+            <?php $this->view('inc/nav_bar.php'); ?>
             <!-- Top Bar End -->
 
             <!-- Page Content-->
@@ -257,7 +257,7 @@
 
                 </div><!-- container -->
 
-               <?$this->view('inc/footer_text.php');?>
+               <?php $this->view('inc/footer_text.php');?>
             </div>
             <!-- end page content -->
         </div>
@@ -265,7 +265,7 @@
 
         
 
-<?$this->view('inc/footer.php');?>
+<?php $this->view('inc/footer.php');?>
 <script src="<?=base_url()?>assets/plugins/dragula/dragula.min.js"></script>
 <script src="<?=base_url()?>assets/pages/jquery.dragula.init.js"></script>
 <?
