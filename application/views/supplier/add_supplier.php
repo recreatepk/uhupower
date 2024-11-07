@@ -135,7 +135,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -159,7 +159,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
        <script>

@@ -151,24 +151,24 @@
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="employee_warehousing_id">
                                                                             <option value="0">None</option>
                                                                             <optgroup label="Warehouses">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($warehouses as $warehouse) {
                                                                                         if($warehouse['warehouse_location'] == 0){
                                                                                 ?>
                                                                                         <option <?=$retVal = ($users[0]['employee_warehousing_id'] == $warehouse['warehouse_id'] && $users[0]['employee_warehousing_access'] == 1) ? 'selected' : '' ;?> value="<?=$warehouse['warehouse_id']?>"><?=$warehouse['warehouse_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
                                                                                 
                                                                             </optgroup>
                                                                             <optgroup label="Stores">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($stores as $store) {
                                                                                         if($store['store_location'] == 0){
                                                                                 ?>
                                                                                         <option <?=$retVal = ($users[0]['employee_warehousing_id'] == $store['store_id'] && $users[0]['employee_warehousing_access'] == 2) ? 'selected' : '' ;?> value="<?=$store['store_id']?>"><?=$store['store_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
@@ -189,12 +189,12 @@
                                                                         <label>Employee User Group *</label>
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="user_group_id">
                                                                             <optgroup label="Working as">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($user_groups as $user_group) {
                                                                                     
                                                                                 ?>
                                                                                 <option <?=$retVal = ($users[0]['user_group_id'] == $user_group['user_group_id']) ? 'selected' : '' ;?> value="<?=$user_group['user_group_id']?>"><?=$user_group['user_group_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                             }
                                                                                 ?>
                                                                             </optgroup>
@@ -206,12 +206,12 @@
                                                                         <label>Employee Department *</label>
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="department_id">
                                                                             <optgroup label="Working in">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($departments as $department) {
                                                                                     
                                                                                 ?>
                                                                                 <option <?=$retVal = ($department['department_id'] == $users[0]['department_id']) ? 'selected' : '' ;?> value="<?=$department['department_id']?>"><?=$department['department_name']?> - <?=$department['department_description']?></option>
-                                                                                <?
+                                                                                <?php
                                                                             }
                                                                                 ?>
                                                                             </optgroup>
@@ -230,15 +230,15 @@
                                                                         <input type="file" name="signFile" accept=".png" class="custom-file-input" id="signFile" onchange="showFileName('signFile', 'signLabel')">
                                                                         <label class="custom-file-label" id="signLabel" for="signFile">Choose Signature</label>
                                                                     </div>
-                                                                    <?
+                                                                    <?php
                                                                     if (isset($users[0]['employee_sign_file']) && !empty($users[0]['employee_sign_file'])) {
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" href="<?=base_url()?>uploads/<?=$users[0]['employee_code']?>/<?=$users[0]['employee_sign_file']?>" download>CV Donwload</a>
-                                                                    <?
+                                                                    <?php
                                                                     }else{
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" style="color: white; pointer-events: none;">No file Found</a>
-                                                                    <?
+                                                                    <?php
                                                                     }
                                                                     ?>
                                                                 </div>
@@ -248,15 +248,15 @@
                                                                         <input type="file" name="cv" accept=".pdf,.jpg,.jpeg,.png" class="custom-file-input" id="cvFile" onchange="showFileName('cvFile', 'cvLabel')">
                                                                         <label class="custom-file-label" id="cvLabel" for="cvFile">Choose CV</label>
                                                                     </div>
-                                                                    <?
+                                                                    <?php
                                                                     if (isset($users[0]['employee_cv_file']) && !empty($users[0]['employee_cv_file'])) {
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" href="<?=base_url()?>uploads/<?=$users[0]['employee_code']?>/<?=$users[0]['employee_cv_file']?>" download>CV Donwload</a>
-                                                                    <?
+                                                                    <?php
                                                                     }else{
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" style="color: white; pointer-events: none;">No file Found</a>
-                                                                    <?
+                                                                    <?php
                                                                     }
                                                                     ?>
                                                                     
@@ -267,15 +267,15 @@
                                                                         <input type="file" name="cd" accept=".pdf,.jpg,.jpeg,.png" class="custom-file-input" id="contractFile" onchange="showFileName('contractFile', 'contractLabel')">
                                                                         <label class="custom-file-label" id="contractLabel" for="contractFile">Choose Contract</label>
                                                                     </div>
-                                                                    <?
+                                                                    <?php
                                                                     if (isset($users[0]['employee_cd_file']) && !empty($users[0]['employee_cd_file'])) {
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" href="<?=base_url()?>uploads/<?=$users[0]['employee_code']?>/<?=$users[0]['employee_cd_file']?>" download>Contract Document Donwload</a>
-                                                                    <?
+                                                                    <?php
                                                                     }else{
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" style="color: white; pointer-events: none;">No file Found</a>
-                                                                    <?
+                                                                    <?php
                                                                     }
                                                                     ?>
                                                                     
@@ -286,15 +286,15 @@
                                                                         <input type="file" name="cnic" accept=".pdf,.jpg,.jpeg,.png" class="custom-file-input" id="cnicFile" onchange="showFileName('cnicFile', 'cnicLabel')">
                                                                         <label class="custom-file-label" id="cnicLabel" for="cnicFile">Choose CNIC</label>
                                                                     </div>
-                                                                    <?
+                                                                    <?php
                                                                     if (isset($users[0]['employee_cnic_file']) && !empty($users[0]['employee_cnic_file'])) {
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" href="<?=base_url()?>uploads/<?=$users[0]['employee_code']?>/<?=$users[0]['employee_cnic_file']?>" download>Personal Particulars Donwload</a>
-                                                                    <?
+                                                                    <?php
                                                                     }else{
                                                                     ?>
                                                                         <a class="btn btn-primary px-4" style="color: white;pointer-events: none;" >No file Found</a>
-                                                                    <?
+                                                                    <?php
                                                                     }
                                                                     ?>
 
@@ -357,7 +357,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -381,7 +381,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

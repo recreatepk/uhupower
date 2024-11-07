@@ -73,7 +73,7 @@
 																name="purchase_order_supplier_id">
 
 															<optgroup label="Select Customer">
-																<?
+																<?php
 																foreach ($suppliers as $supplier) {
 																	if ($supplier['cat'] == 2) {
 
@@ -81,13 +81,13 @@
 																		<option
 																			value="<?= $supplier['sup_cus_id'] ?>"><?= $supplier['sup_cus_company'] ?>
 																			- <?= $supplier['sup_cus_name'] ?></option>
-																		<?
+																		<?php
 																	}
 																}
 																?>
 															</optgroup>
 															<optgroup label="Select Supplier">
-																<?
+																<?php
 																foreach ($suppliers as $supplier) {
 																	if ($supplier['cat'] == 1) {
 
@@ -95,7 +95,7 @@
 																		<option
 																			value="<?= $supplier['sup_cus_id'] ?>"><?= $supplier['sup_cus_company'] ?>
 																			- <?= $supplier['sup_cus_name'] ?></option>
-																		<?
+																		<?php
 																	}
 																}
 																?>
@@ -164,24 +164,24 @@
 																				name="purchase_order_product_id"
 																				required>
 																				<option>Please Select</option>
-																				<?
+																				<?php
 																				foreach ($product_categories as $product_category) {
 																					?>
 																					<optgroup
 																						label="<?= $product_category['product_category_name'] ?>">
-																						<?
+																						<?php
 																						foreach ($products as $product) {
 																							if ($product['product_category_id'] == $product_category['product_category_id']) {
 																								?>
 
 																								<option
 																									value="<?= $product['product_id'] ?>"><?= $product['product_name'] ?> </option>
-																								<?
+																								<?php
 																							}
 																						}
 																						?>
 																					</optgroup>
-																					<?
+																					<?php
 																				}
 																				?>
 																			</select>
@@ -249,12 +249,12 @@
 																		<div class="col-sm-6">
 																			<label>Select Services needs to be Rendered *</label>
 																			<select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
-																				<?
+																				<?php
 																				foreach ($services as $service) {
 																					?>
 																					<option value="<?=$service['service_id']?>"><?=$service['service_name']?></option>
 
-																					<?
+																					<?php
 																				}
 																				?>
 																			</select>
@@ -332,7 +332,7 @@
 <?php $this->view('inc/footer.php'); ?>
 <script src="<?= base_url() ?>assets/plugins/repeater/jquery.repeater.min.js"></script>
 <script src="<?= base_url() ?>assets/pages/jquery.form-repeater.js"></script>
-<?
+<?php
 if ($this->session->flashdata('add')) {
 	?>
 	<script>
@@ -356,7 +356,7 @@ if ($this->session->flashdata('add')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script type="text/javascript">

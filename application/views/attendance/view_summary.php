@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($attendance);die;
 ?>
 <!DOCTYPE html>
@@ -65,7 +65,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?
+                                                                <?php
                                                                     foreach ($attendance as $att){
                                                                 ?>
                                                                         <tr>
@@ -73,23 +73,23 @@
                                                                                 <?=date('l, dS, M',strtotime($att['date']))?>
                                                                             </td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                     if ($att['attendance_present'] == 1) {
                                                                                 ?>
                                                                                         <a href="#" class="badge badge-pill badge-success">Present</a>
-                                                                                <?
+                                                                                <?php
                                                                                     }if ($att['attendance_present'] == 2) {
                                                                                 ?>
                                                                                         <a href="#" class="badge badge-pill badge-danger">Absent</a>
-                                                                                <?
+                                                                                <?php
                                                                                     }if ($att['attendance_present'] == 3) {
                                                                                 ?>
                                                                                         <a href="#" class="badge badge-pill badge-warning">Late</a>
-                                                                                <?
+                                                                                <?php
                                                                                     }if ($att['attendance_present'] == 4) {
                                                                                 ?>
                                                                                         <a href="#" class="badge badge-pill badge-info">Leave</a>
-                                                                                <?
+                                                                                <?php
                                                                                     }
                                                                                 ?>
                                                                             </td>

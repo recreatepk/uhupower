@@ -44,36 +44,36 @@
                                                             <div class="form-group">
                                                                 <label>Select <?=$retVal = ($check == 2) ? 'Supplier' : 'Customer' ;?> *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="sup_cus_id" id="customerSelect">
-                                                                    <? 
+                                                                    <?php
                                                                         if($check == 1){
                                                                     ?>
                                                                     <optgroup label="Select Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 2) {
                                                                         ?>
                                                                         <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
                                                                     </optgroup>
-                                                                    <? 
+                                                                    <?php
                                                                         }if($check == 2){
                                                                     ?>
                                                                     <optgroup label="Select Supplier">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 1) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
                                                                     </optgroup>
-                                                                    <? 
+                                                                    <?php
                                                                         }
                                                                     ?>
                                                                 </select>
@@ -137,7 +137,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -161,7 +161,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

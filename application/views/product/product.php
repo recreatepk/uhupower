@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($products as $product) {
                                                             ?>
@@ -62,16 +62,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(2, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(2, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>product/edit_product/<?=$product['product_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Product</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(3, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(3, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>product/delete_product/<?=$product['product_id']?>"><i class="mdi mdi-delete"></i> Delete Product</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -99,7 +99,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -123,7 +123,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

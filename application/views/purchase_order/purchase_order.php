@@ -84,7 +84,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 $total = 0;
                                                                 $tax_cost = 0;
@@ -101,7 +101,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$pro['purchase_order_product_cost']?></td>
                                                                             <td><?=$pro['purchase_order_product_tax']?></td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                     
                                                                                     if ($pro['purchase_order_product_tax'] == 0) {
                                                                                         $total = $pro['purchase_order_product_qty'] * $pro['purchase_order_product_cost'];
@@ -117,7 +117,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                 ?>
                                                                             </td>
                                                                         </tr>
-                                                            <?
+                                                            <?php
                                                                         $count++;
                                                                     }
                                                                 }
@@ -136,18 +136,18 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                         </tfoot>
                                                     </table>
                                                 </div>
-                                                <?
+                                                <?php
                                                     if ($pos[0]['purchase_order_status'] != 2 && in_array(27, $_SESSION['module_id'])) {
                                                 ?>
                                                 <div class="col-sm-12">
-                                                    <a href="<?=base_url()?>Purchase_order/change_status/<?=$pos[0]['purchase_order_id']?>/<? if ($pos[0]['purchase_order_status'] == 1) {
+                                                    <a href="<?=base_url()?>Purchase_order/change_status/<?=$pos[0]['purchase_order_id']?>/<?php if ($pos[0]['purchase_order_status'] == 1) {
                                                        echo '2';
                                                     }if ($pos[0]['purchase_order_status'] == 2){
                                                         echo '2';
                                                     }if ($pos[0]['purchase_order_status'] == 0){
                                                         echo '1';
                                                     }?>" class="btn btn-primary px-4 text-right">
-                                                    <? if ($pos[0]['purchase_order_status'] == 1) {
+                                                    <?php if ($pos[0]['purchase_order_status'] == 1) {
                                                        echo 'Finalize & Create GRN';
                                                     }   if ($pos[0]['purchase_order_status'] == 2){
                                                         echo "Already Finalized";
@@ -155,7 +155,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                         echo 'Approve';
                                                     } ?></a>
                                                 </div>
-                                                <?
+                                                <?php
                                                     }
                                                 ?>
                                             </div><!--end card-body-->
@@ -179,7 +179,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -203,7 +203,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

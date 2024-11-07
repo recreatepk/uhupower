@@ -74,7 +74,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -98,7 +98,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
        

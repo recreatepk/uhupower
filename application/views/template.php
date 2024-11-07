@@ -60,7 +60,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -84,7 +84,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
         

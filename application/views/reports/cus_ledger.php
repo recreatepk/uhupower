@@ -1,4 +1,4 @@
-<?
+<?php
 // print_r($suppliers);die;
 ?>
 <!DOCTYPE html>
@@ -50,28 +50,28 @@
 											<select class="form-control custom-select" style="width: 100%; height:36px;"
 													name="supplier_id">
 
-												<?
+												<?php
 												if ($check == 1) {
 													?>
 													<optgroup label="Select Customer">
-														<?
+														<?php
 														foreach ($suppliers as $supplier) {
 															if ($supplier['cat'] == 2) {
 																?>
 																<option
 																	value="<?= $supplier['sup_cus_id'] ?>" <?= $retVal = ($supplier['sup_cus_id'] == $sup[0]['sup_cus_id']) ? 'selected' : ''; ?>><?= $supplier['sup_cus_company'] ?>
 																	- <?= $supplier['sup_cus_name'] ?></option>
-																<?
+																<?php
 															}
 														}
 														?>
 													</optgroup>
-													<?
+													<?php
 												}
 												if ($check == 2) {
 													?>
 													<optgroup label="Select Supplier">
-														<?
+														<?php
 														foreach ($suppliers as $supplier) {
 															if ($supplier['cat'] == 1) {
 
@@ -79,12 +79,12 @@
 																<option
 																	value="<?= $supplier['sup_cus_id'] ?>" <?= $retVal = ($supplier['sup_cus_id'] == $sup[0]['sup_cus_id']) ? 'selected' : ''; ?>><?= $supplier['sup_cus_company'] ?>
 																	- <?= $supplier['sup_cus_name'] ?></option>
-																<?
+																<?php
 															}
 														}
 														?>
 													</optgroup>
-													<?
+													<?php
 												}
 												?>
 											</select>
@@ -159,7 +159,7 @@
 										?>
 										<tr>
 											<td>
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 													echo $item['purchase_order_date'];
 												}
@@ -178,7 +178,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 													echo 'Purchase';
 												}
@@ -198,7 +198,7 @@
 											</td>
 											<td>
 
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 													echo "<div style='float:left;width:50%;'>";
 													echo $item['product_name'];
@@ -232,7 +232,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 													echo $item['purchase_order_product_qty'];
 												}
@@ -242,7 +242,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 													echo $item['purchase_order_product_cost'] + $taxed_amount;
 												}
@@ -258,7 +258,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												if ($check == 1) {
 													if (isset($item['invoice_id'])) {
 														$invoice_cost = $item['invoice_cost'] * $item['invoice_qty'];
@@ -292,7 +292,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												if ($check == 1) {
 													if (isset($item['purchase_order_id'])) {
 														$po_cost = $item['purchase_order_product_cost'] * $item['purchase_order_product_qty'];
@@ -336,7 +336,7 @@
 												?>
 											</td>
 											<td>
-												<?
+												<?php
 												$balanceValue = $balance;
 												$balanceTotal = ((($item['invoice_cost'] + $taxed_amount) * $item['invoice_qty']) + $balance);
 												if ($balance < 0) {
@@ -352,7 +352,7 @@
 											</td>
 											<td class="no-print">
 
-												<?
+												<?php
 												if (isset($item['purchase_order_id'])) {
 
 													echo "<div>";

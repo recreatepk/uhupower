@@ -1,4 +1,4 @@
-<?
+<?php
 	// print_r($dcs);die;
 ?>
 
@@ -67,7 +67,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($dcs as $dc) {
                                                             ?>
@@ -75,15 +75,15 @@
                                                                 <td><?=$count?></td>
                                                                 <td>DO - 0<?=$dc['sell_dc_id']?></td>
                                                                 <td>
-                                                                	<?
+                                                                	<?php
                                                                 		if ($dc['status'] == 1) {
                                                                 	?>
                                                                 			<span class="badge badge-pill badge-danger"><i class="fas fa-ban"></i> Not Yet Delivered</span>
-                                                                	<?
+                                                                	<?php
                                                                 		}if ($dc['status'] == 2) {
                                                                 	?>
                                                                 			<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Delivered</span>
-                                                                	<?
+                                                                	<?php
                                                                 		}
                                                                 	?>
                                                                 </td>
@@ -91,13 +91,13 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(49, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(49, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/view_dc/<?=$dc['sell_dc_id']?>"><i class="fas fa-handshake"></i> Deliver Items</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -125,7 +125,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -149,7 +149,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

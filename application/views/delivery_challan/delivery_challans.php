@@ -1,4 +1,4 @@
-<?
+<?php
 	// print_r($dcs);die;
 ?>
 
@@ -68,7 +68,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($dcs as $dc) {
                                                             ?>
@@ -76,19 +76,19 @@
                                                                 <td><?=$count?></td>
                                                                 <td>GRN - 0<?=$dc['purchase_dc_purchase_order_id']?></td>
                                                                 <td>
-                                                                	<?
+                                                                	<?php
                                                                 		if ($dc['receiving_status'] == 0) {
                                                                 	?>
                                                                 			<span class="badge badge-pill badge-danger"><i class="fas fa-ban"></i> Not Yet Received</span>
-                                                                	<?
+                                                                	<?php
                                                                 		}if ($dc['receiving_status'] == 1) {
                                                                 	?>
                                                                 			<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Received</span>
-                                                                	<?
+                                                                	<?php
                                                                 		}if ($dc['receiving_status'] == 2) {
                                                                 	?>
                                                                 			<span class="badge badge-pill badge-warning"><i class="fas fa-adjust"></i> Partially Received</span>
-                                                                	<?
+                                                                	<?php
                                                                 		}
                                                                 	?>
                                                                 </td>
@@ -99,16 +99,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(33, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(33, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Delivery_challan/view_dc/<?=$dc['purchase_dc_purchase_order_id']?>"><i class="fas fa-eye"></i> View GRN</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(34, $_SESSION['module_id']) && $dc['receiving_status'] != 1){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(34, $_SESSION['module_id']) && $dc['receiving_status'] != 1){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Delivery_challan/recieve_dc/<?=$dc['purchase_dc_purchase_order_id']?>"><i class="fas fa-truck-loading"></i> Recieve Goods</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -136,7 +136,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -160,7 +160,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

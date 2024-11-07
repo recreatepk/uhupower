@@ -46,12 +46,12 @@
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="expense_category_id">
 
                                                                     <optgroup label="Select an Expense Category">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($expense_categories as $expense_category) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$expense_category['expense_category_id']?>"<?=$retVal = ($expense_category['expense_category_id'] == $expense[0]['expense_category_id']) ? 'selected' : '' ;?>><?=$expense_category['expense_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                     }
                                                                         ?>
                                                                     </optgroup>
@@ -98,7 +98,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -122,7 +122,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
        <script>

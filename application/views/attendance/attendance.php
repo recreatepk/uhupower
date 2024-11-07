@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($Today_attendance);die;
 ?>
 <!DOCTYPE html>
@@ -66,7 +66,7 @@
                                                             <th>Reason</th>
                                                         </tr>
                                                         </thead>
-                                                        <form action="<?=base_url()?>Attendance/<?
+                                                        <form action="<?=base_url()?>Attendance/<?php
                                                                         if (isset($Today_attendance) && !empty($Today_attendance)) {
                                                                             echo "change_attendance/".$Today_attendance[0]['date'];
                                                                             if(isset($check)){
@@ -80,7 +80,7 @@
                                                                         }
                                                                     ?>" method="POST">
                                                             <tbody>
-                                                                <?
+                                                                <?php
 
                                                                     foreach ($employees as $employee) {
                                                                 ?>
@@ -89,7 +89,7 @@
                                                                     <td>
                                                                         <div class="checkbox checkbox-success checkbox-circle">
                                                                             <input id="checkbox-<?=$employee['employee_id']?>" type="checkbox" name="present[]" value="<?=$employee['employee_id']?>"
-                                                                            <?
+                                                                            <?php
                                                                                 foreach ($Today_attendance as $attendance) {
                                                                                     if ($attendance['attendance_employee_id'] == $employee['employee_id']) {
                                                                                         if ($attendance['attendance_present'] == 1) {
@@ -106,7 +106,7 @@
                                                                     <td>
                                                                         <div class="checkbox checkbox-danger checkbox-circle">
                                                                             <input id="checkbox-absent<?=$employee['employee_id']?>" type="checkbox"  name="absent[]" value="<?=$employee['employee_id']?>" 
-                                                                            <?
+                                                                            <?php
                                                                                 foreach ($Today_attendance as $attendance) {
                                                                                     if ($attendance['attendance_employee_id'] == $employee['employee_id']) {
                                                                                         if ($attendance['attendance_present'] == 2) {
@@ -123,7 +123,7 @@
                                                                     <td>
                                                                         <div class="checkbox checkbox-warning checkbox-circle">
                                                                             <input id="checkbox-late<?=$employee['employee_id']?>" type="checkbox"  name="late[]" value="<?=$employee['employee_id']?>"
-                                                                            <?
+                                                                            <?php
                                                                                 foreach ($Today_attendance as $attendance) {
                                                                                     if ($attendance['attendance_employee_id'] == $employee['employee_id']) {
                                                                                         if ($attendance['attendance_present'] == 3) {
@@ -140,7 +140,7 @@
                                                                     <td>
                                                                         <div class="checkbox checkbox-info checkbox-circle">
                                                                             <input id="checkbox-leave<?=$employee['employee_id']?>" type="checkbox"  name="leave[]" value="<?=$employee['employee_id']?>"
-                                                                            <?
+                                                                            <?php
                                                                                 foreach ($Today_attendance as $attendance) {
                                                                                     if ($attendance['attendance_employee_id'] == $employee['employee_id']) {
                                                                                         if ($attendance['attendance_present'] == 4) {
@@ -157,7 +157,7 @@
                                                                     <td>
                                                                         <div class="form-group">
                                                                             <label>Reason for Leave</label>
-                                                                            <input type="text" class="form-control" name="reason[<?=$employee['employee_id']?>]" value="<?
+                                                                            <input type="text" class="form-control" name="reason[<?=$employee['employee_id']?>]" value="<?php
                                                                                 foreach ($Today_attendance as $attendance) {
                                                                                     if ($attendance['attendance_employee_id'] == $employee['employee_id']) {
                                                                                         if ($attendance['attendance_present'] == 4) {
@@ -170,7 +170,7 @@
                                                                     </td>
                                                                     
                                                                 </tr>
-                                                                <?
+                                                                <?php
                                                                     }
                                                                 ?>
                                                             </tbody>
@@ -204,7 +204,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('mark')){
 ?>
 <script>
@@ -228,10 +228,10 @@ if($this->session->flashdata('mark')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('change')){
 ?>
 <script>
@@ -255,7 +255,7 @@ if($this->session->flashdata('change')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

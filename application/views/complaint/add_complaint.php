@@ -47,25 +47,25 @@
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="customer_id">
 
                                                                     <optgroup label="Select Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 2) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
                                                                     </optgroup>
                                                                     <optgroup label="Select Supplier">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 1) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
@@ -111,7 +111,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -135,7 +135,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

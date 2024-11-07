@@ -62,7 +62,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?
+                                                                <?php
                                                                     $count = 1;
                                                                     $totalCostAfterTax_s = 0;
                                                                     foreach ($rendered_services as $rendered_service) {
@@ -73,7 +73,7 @@
                                                                         <td><?=$rendered_service['service_cost']?></td>
                                                                         <td><?=$rendered_service['service_tax']?></td>
                                                                         <td>
-                                                                            <?
+                                                                            <?php
 
                                                                                 if ($rendered_service['service_tax'] == 0) {
                                                                                     $taxPercentage = 1;
@@ -88,7 +88,7 @@
                                                                             ?>
                                                                         </td>
                                                                     </tr>
-                                                                <?
+                                                                <?php
                                                                         $count++;
                                                                     }
                                                                 ?>
@@ -115,7 +115,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?
+                                                                <?php
                                                                     $count = 1;
                                                                     $totalCostAfterTax_product = 0;
                                                                     $totalCostAfterTax_p = 0;
@@ -131,7 +131,7 @@
                                                                         <td><?=$product['product_cost']?></td>
                                                                         <td><?=$product['product_tax']?></td>
                                                                         <td>
-                                                                            <?
+                                                                            <?php
 
                                                                                 if ($product['product_tax'] == 0) {
                                                                                     $taxPercentage = 1;
@@ -147,7 +147,7 @@
                                                                             ?>
                                                                         </td>
                                                                     </tr>
-                                                                <?
+                                                                <?php
                                                                         $count++;
                                                                     }
                                                                 ?>
@@ -180,7 +180,7 @@
                                                             </div>
                                                             
                                                             <div id="project-list-left" class="pb-1">
-                                                                <?
+                                                                <?php
                                                                     $assignedEmployeeIds = [];
                                                                     foreach ($service_assignments as $service_assignment) {
                                                                         $assignedEmployeeIds[] = $service_assignment['employee_id'];
@@ -198,7 +198,7 @@
                                                                         <input type="hidden" name="employee_ids[]" value="<?=$employee['employee_id']?>">
                                                                     </div><!--end card-body-->
                                                                 </div>
-                                                                <?
+                                                                <?php
                                                                         }
                                                                     }
                                                                 ?>
@@ -217,7 +217,7 @@
                                                             </div>
                                                             <form method="POST" action="<?=base_url()?>Service/assigning_personel/<?=$rendered_services[0]['render_service_id']?>">
                                                                 <div id="project-list-center-left" class="pb-1">
-                                                                <?
+                                                                <?php
                                                                     foreach ($employees as $employee) {
                                                                         foreach ($service_assignments as $service_assignment) {
                                                                             if ($service_assignment['employee_id'] == $employee['employee_id']) {
@@ -231,7 +231,7 @@
                                                                         <input type="hidden" name="employee_ids[]" value="<?=$employee['employee_id']?>">
                                                                     </div><!--end card-body-->
                                                                 </div>
-                                                                <?
+                                                                <?php
                                                                             }
                                                                         }
                                                                     }
@@ -268,7 +268,7 @@
 <?php $this->view('inc/footer.php');?>
 <script src="<?=base_url()?>assets/plugins/dragula/dragula.min.js"></script>
 <script src="<?=base_url()?>assets/pages/jquery.dragula.init.js"></script>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -292,7 +292,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

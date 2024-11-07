@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h4 class="card-title">All Goods
-                                                <?if ($check == 1) {
+                                                <?php if ($check == 1) {
                                                     echo "in ";
                                                     echo "<code>".$warehouses[0]['warehouse_name']."</code>";
                                                 }if ($check == 0) {
@@ -50,7 +50,7 @@
                                                 } ?>
                                             </h4>
                                             <p class="text-muted mb-0">Goods in
-                                                <? if ($check == 1) {
+                                                <?php if ($check == 1) {
                                                     echo "Warehouse";
                                                 }if ($check == 0) {
                                                     echo "Store";
@@ -79,7 +79,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?
+                                                        <?php
                                                                 $count = 1;
                                                                 foreach ($inventory as $inv) {
                                                             ?>
@@ -94,7 +94,7 @@
                                                             <td><?=$inv['inventory_product_qty']?></td>
                                                             <td
                                                                 <?=$retVal = ($check == 1 || $check == 0) ? "style='display: none;'" : '' ;?>>
-                                                                <?
+                                                                <?php
                                                                         if ($inv['inventory_location'] == 1) {
                                                                            foreach ($warehouses as $warehouse) {
                                                                                if ($inv['inventory_loc_id'] == $warehouse['warehouse_id']) {
@@ -122,7 +122,7 @@
                                                                     aria-controls="collapseExample">
                                                                     <i class="mdi mdi-arrow-down-bold"></i> Check Sr. #
                                                                 </a>
-                                                                <? 
+                                                                <?php
                                                                         foreach ($unique_identifiers as $unique_identifier) {
                                                                             if ($unique_identifier['product_id'] == $inv['inventory_product_id']) {
                                                                             
@@ -136,7 +136,7 @@
                                                                         </li>
                                                                     </ul>
                                                                 </div>
-                                                                <?
+                                                                <?php
                                                                             }
                                                                         }
 
@@ -144,7 +144,7 @@
                                                             </td>
 
                                                         </tr>
-                                                        <?
+                                                        <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -178,7 +178,7 @@
 
 
     <?php $this->view('inc/footer.php');?>
-    <?
+    <?php
 if($this->session->flashdata('del')){
 ?>
     <script>
@@ -202,7 +202,7 @@ if($this->session->flashdata('del')){
         });
     });
     </script>
-    <?
+    <?php
 }
 ?>
     <script>

@@ -84,7 +84,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 $total = 0;
                                                                 $tax_cost = 0;
@@ -101,7 +101,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$pro['purchase_order_product_cost']?></td>
                                                                             <td><?=$pro['purchase_order_product_tax']?></td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                     
                                                                                     if ($pro['purchase_order_product_tax'] == 0) {
                                                                                         $total = $pro['purchase_order_product_qty'] * $pro['purchase_order_product_cost'];
@@ -117,7 +117,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                 ?>
                                                                             </td>
                                                                         </tr>
-                                                            <?
+                                                            <?php
                                                                         $count++;
                                                                     }
                                                                 }

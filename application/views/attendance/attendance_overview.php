@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($attendance);die;
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($employees as $employee) {
                                                             ?>
@@ -75,7 +75,7 @@
                                                                 <td><?=$count?></td>
                                                                 <td><?=$employee['employee_name']?> (<?=$employee['employee_code']?>)</td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         foreach ($attendance as $att) {
                                                                             if ($att['attendance_employee_id'] == $employee['employee_id']) {
                                                                                 echo $att['Present'];
@@ -84,7 +84,7 @@
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         foreach ($attendance as $att) {
                                                                             if ($att['attendance_employee_id'] == $employee['employee_id']) {
                                                                                 echo $att['Absent'];
@@ -93,7 +93,7 @@
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         foreach ($attendance as $att) {
                                                                             if ($att['attendance_employee_id'] == $employee['employee_id']) {
                                                                                 echo $att['Late'];
@@ -102,7 +102,7 @@
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         foreach ($attendance as $att) {
                                                                             if ($att['attendance_employee_id'] == $employee['employee_id']) {
                                                                                 echo $att['Leave'];
@@ -114,7 +114,7 @@
                                                                     <a href="<?=base_url()?>Attendance/view_summary/<?=$employee['employee_id']?>/<?=$retVal = (isset($check)) ? '1' : '' ;?>" class="btn btn-sm btn-outline-light d-inline-block">View Summary</a>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -143,7 +143,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('mark')){
 ?>
 <script>
@@ -167,10 +167,10 @@ if($this->session->flashdata('mark')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('change')){
 ?>
 <script>
@@ -194,7 +194,7 @@ if($this->session->flashdata('change')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

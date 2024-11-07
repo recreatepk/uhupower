@@ -58,7 +58,7 @@
                                                                 <th scope="row"><?=$count?></th>
                                                                 <td><?=$user_group['user_group_name']?></td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         $this->db->select('mm.name AS main_module_name');
                                                                         $this->db->from('permission AS p');
                                                                         $this->db->join('module AS m', 'p.module_id = m.module_id');
@@ -70,7 +70,7 @@
                                                                     <a class="btn btn-primary mb-2 mb-lg-0" data-toggle="collapse" href="#collapseExample<?=$user_group['user_group_id']?>" aria-expanded="true" aria-controls="collapseExample">
                                                                         <i class="mdi mdi-arrow-down-bold"></i> Show All Modules
                                                                     </a>
-                                                                    <? 
+                                                                    <?php
                                                                         foreach ($mainModules as $mainModules) {
 
                                                                     ?>
@@ -81,7 +81,7 @@
                                                                                     </ul>
                                                                                 </div>
                                                                             </div>
-                                                                    <?
+                                                                    <?php
                                                                         }
 
                                                                     ?>
@@ -89,35 +89,35 @@
                                             
                                                                 </td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                     if ($user_group['user_group_id'] == 1) {
                                                                         echo "System genrated Group (Can't modify)";
                                                                     }elseif ($user_group['user_group_id'] == 2) {
                                                                         ?>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(10, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(10, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>user/edit_user_group/<?=$user_group['user_group_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Group</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
-                                                                        <?
+                                                                        <?php
                                                                     }else{
                                                                         ?>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(10, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(10, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>user/edit_user_group/<?=$user_group['user_group_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Group</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(12, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(12, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>user/delete_user_group/<?=$user_group['user_group_id']?>"><i class="mdi mdi-delete"></i> Delete Group</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
-                                                                    <?
+                                                                    <?php
                                                                      }
                                                                     ?>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                             $count++;
                                                             }
                                                             ?>
@@ -145,7 +145,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -169,7 +169,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

@@ -77,14 +77,14 @@
 														<select class="form-control custom-select"
 																style="width: 100%; height:36px;" name="sup_cus_id">
 															<optgroup label="Select Supplier / Customer">
-																<?
+																<?php
 																foreach ($suppliers as $supplier) {
 
 																	?>
 																	<option <?= $retVal = ($supplier['sup_cus_id'] == $service_quotes[0]['sup_cus_id']) ? 'selected' : ''; ?>
 																		value="<?= $supplier['sup_cus_id'] ?>"><?= $supplier['sup_cus_company'] ?>
 																		- <?= $supplier['sup_cus_name'] ?></option>
-																	<?
+																	<?php
 																}
 																?>
 															</optgroup>
@@ -98,14 +98,14 @@
 																style="width: 100%; height:36px;" name="complaint_id">
 															<optgroup label="Select Complaint">
 																<option>No Complaint</option>
-																<?
+																<?php
 																foreach ($complaints as $complaint) {
 
 																	?>
 																	<option
 																		value="<?= $complaint['complaint_id'] ?>" <?= $retVal = ($complaint['complaint_id'] == $service_quotes[0]['complaint_id']) ? 'selected' : ''; ?>><?= $complaint['complaint_id'] ?>
 																		- <?= $complaint['complaint_description'] ?></option>
-																	<?
+																	<?php
 																}
 																?>
 															</optgroup>
@@ -127,14 +127,14 @@
 												<div class="col-sm-12">
 													<div class="col-sm-12"><h5 style="text-align: center;">Update
 															Services</h5></div>
-													<?
+													<?php
 													if (!empty($quote_services)) {
 														?>
 														<fieldset
 															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
 															<div class="repeater-custom-show-hide">
 																<div data-repeater-list="service">
-																	<?
+																	<?php
 																	foreach ($quote_services as $service_quote) {
 																		?>
 																		<div data-repeater-item="">
@@ -150,13 +150,13 @@
 																							style="width: 100%; height:36px;"
 																							name="render_service_id"
 																							required>
-																							<?
+																							<?php
 																							foreach ($services as $service) {
 																								?>
 																								<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
 																									value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
 
-																								<?
+																								<?php
 																							}
 																							?>
 																						</select>
@@ -204,7 +204,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<?
+																		<?php
 																	}
 																	?>
 																</div>
@@ -214,7 +214,7 @@
                                                                         </span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 													} else {
 														?>
 
@@ -235,13 +235,13 @@
 																						style="width: 100%; height:36px;"
 																						name="render_service_id"
 																						required>
-																						<?
+																						<?php
 																						foreach ($services as $service) {
 																							?>
 																							<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
 																								value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
 
-																							<?
+																							<?php
 																						}
 																						?>
 																					</select>
@@ -286,7 +286,7 @@
 																</span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 													}
 													?>
 												</div>
@@ -294,14 +294,14 @@
 												<div class="col-sm-12">
 													<div class="col-sm-12"><h5 style="text-align: center;">Update
 															Parts</h5></div>
-													<?
+													<?php
 													if (!empty($service_quote_products)) {
 														?>
 														<fieldset
 															style="background: #1761fd30;border-radius: 16px;padding: 20px;margin-top: 10px;">
 															<div class="repeater-custom-show-hide">
 																<div data-repeater-list="products">
-																	<?
+																	<?php
 																	foreach ($service_quote_products as $service_quote_product) {
 																		?>
 																		<div data-repeater-item="">
@@ -314,23 +314,23 @@
 																							class="form-control custom-select product-select"
 																							style="width: 100%; height:36px;"
 																							name="product_id" required>
-																							<?
+																							<?php
 																							foreach ($product_categories as $product_category) {
 																								?>
 																								<optgroup
 																									label="<?= $product_category['product_category_name'] ?>">
-																									<?
+																									<?php
 																									foreach ($products as $product) {
 																										if ($product['product_category_id'] == $product_category['product_category_id']) {
 																											?>
 																											<option <?= $retVal = ($product['product_id'] == $service_quote_product['product_id']) ? 'selected' : ''; ?>
 																												value="<?= $product['product_id'] ?>"><?= $product['product_name'] ?> </option>
-																											<?
+																											<?php
 																										}
 																									}
 																									?>
 																								</optgroup>
-																								<?
+																								<?php
 																							}
 																							?>
 																						</select>
@@ -377,7 +377,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<?
+																		<?php
 																	}
 																	?>
 																</div>
@@ -387,7 +387,7 @@
                                                                         </span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 													} else {
 														?>
 														<fieldset
@@ -404,23 +404,23 @@
 																						class="form-control custom-select product-select"
 																						style="width: 100%; height:36px;"
 																						name="product_id" required>
-																						<?
+																						<?php
 																						foreach ($product_categories as $product_category) {
 																							?>
 																							<optgroup
 																								label="<?= $product_category['product_category_name'] ?>">
-																								<?
+																								<?php
 																								foreach ($products as $product) {
 																									if ($product['product_category_id'] == $product_category['product_category_id']) {
 																										?>
 																										<option
 																											value="<?= $product['product_id'] ?>"><?= $product['product_name'] ?> </option>
-																										<?
+																										<?php
 																									}
 																								}
 																								?>
 																							</optgroup>
-																							<?
+																							<?php
 																						}
 																						?>
 																					</select>
@@ -470,7 +470,7 @@
                                                                         </span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 													}
 													?>
 												</div>
@@ -534,7 +534,7 @@
 
 	});
 </script>
-<?
+<?php
 if ($this->session->flashdata('edit')) {
 	?>
 	<script>
@@ -558,7 +558,7 @@ if ($this->session->flashdata('edit')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

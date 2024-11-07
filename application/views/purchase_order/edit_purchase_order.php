@@ -46,12 +46,12 @@
                                                                 <label>Select Supplier *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="purchase_order_supplier_id">
                                                                     <optgroup label="Select Supplier">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 1) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$supplier['sup_cus_id']?>" <? if ($pos[0]['purchase_order_supplier_id'] == $supplier['sup_cus_id']) {
+                                                                        <option value="<?=$supplier['sup_cus_id']?>" <?php if ($pos[0]['purchase_order_supplier_id'] == $supplier['sup_cus_id']) {
                                                                            echo "selected";
                                                                         } ?>><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
                                                                         <?      }
@@ -59,15 +59,15 @@
                                                                         ?>
                                                                     </optgroup>
                                                                     <optgroup label="Select Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 2) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$supplier['sup_cus_id']?>" <? if ($pos[0]['purchase_order_supplier_id'] == $supplier['sup_cus_id']) {
+                                                                        <option value="<?=$supplier['sup_cus_id']?>" <?php if ($pos[0]['purchase_order_supplier_id'] == $supplier['sup_cus_id']) {
                                                                            echo "selected";
                                                                         } ?>><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
@@ -81,7 +81,7 @@
                                                                 <input class="form-control" name="purchase_order_date" type="date" value="<?=$pos[0]['purchase_order_date']?>" id="example-date-input" required>
                                                             </div>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             $index = 2000;
                                                             foreach ($products as $PO_product) {
                                                         ?>
@@ -90,27 +90,27 @@
                                                                 <div class="col-sm-3">
                                                                     <label>Select Products for Purchase *</label>
                                                                     <select class="form-control custom-select" style="width: 100%; height:36px;" name="products[<?= $index ?>][purchase_order_product_id]" required>
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_product_categories as $product_category) {
                                                                         ?>
                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($all_products as $product) {
                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                 ?>
                                                                                             <option value="<?=$product['product_id']?>" 
-                                                                                            <?
+                                                                                            <?php
                                                                                                 if ($PO_product['purchase_order_product_id'] == $product['product_id']) {
                                                                                                     echo "selected";
                                                                                                 }
                                                                                             ?>
                                                                                             ><?=$product['product_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
                                                                             </optgroup>
-                                                                        <?
+                                                                        <?php
                                                                             }
                                                                         ?>
                                                                     </select>
@@ -137,7 +137,7 @@
                                                                 
                                                             </div>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             $index++;
                                                             }
                                                         ?>
@@ -150,21 +150,21 @@
                                                                                 <div class="col-sm-3">
                                                                                     <label>Select Products for Purchase *</label>
                                                                                     <select class="form-control custom-select" style="width: 100%; height:36px;" name="purchase_order_product_id" required>
-                                                                                        <?
+                                                                                        <?php
                                                                                             foreach ($all_product_categories as $product_category) {
                                                                                         ?>
                                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($all_products as $product) {
                                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                                 ?>
                                                                                                             <option value="<?=$product['product_id']?>"><?=$product['product_name']?></option>
-                                                                                                <?
+                                                                                                <?php
                                                                                                         }
                                                                                                     }
                                                                                                 ?>
                                                                                             </optgroup>
-                                                                                        <?
+                                                                                        <?php
                                                                                             }
                                                                                         ?>
                                                                                     </select>
@@ -224,7 +224,7 @@
 <?php $this->view('inc/footer.php');?>
 <script src="<?=base_url()?>assets/plugins/repeater/jquery.repeater.min.js"></script>
 <script src="<?=base_url()?>assets/pages/jquery.form-repeater.js"></script>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -248,7 +248,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

@@ -67,12 +67,12 @@
                                                                     <? foreach ($main_modules as $module) { ?>
                                                                     <tr>
                                                                         <td>
-                                                                        <?
+                                                                        <?php
                                                                             echo $module['name'];
                                                                         ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($permissions as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'A') { ?>
@@ -82,14 +82,14 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($permissions as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'V') { ?>
@@ -99,14 +99,14 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($permissions as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'E') { ?>
@@ -116,14 +116,14 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($permissions as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'D') { ?>
@@ -133,14 +133,14 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                     </tr>
-                                                                    <?
+                                                                    <?php
                                                                         }
                                                                     ?>
 
@@ -176,7 +176,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -200,7 +200,7 @@ $(document).ready(function() {
   });
 });
 </script>
-<?
+<?php
 }
 ?>
 <script>

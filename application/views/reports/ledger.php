@@ -49,32 +49,32 @@
                                                         if($check == 1){
                                                         ?>
                                                         <optgroup label="Select Customer">
-                                                            <?
+                                                            <?php
                                                                 foreach ($suppliers as $supplier) {
                                                                     if ($supplier['cat'] == 2) {
                                                             ?>
                                                             <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                            <?
+                                                            <?php
                                                                     }
                                                                 }
                                                             ?>
                                                         </optgroup>
-                                                        <?
+                                                        <?php
                                                             }if($check == 2){
                                                         ?>
                                                         <optgroup label="Select Supplier">
-                                                            <?
+                                                            <?php
                                                                 foreach ($suppliers as $supplier) {
                                                                     if ($supplier['cat'] == 1) {
                                                                 
                                                             ?>
                                                             <option value="<?=$supplier['sup_cus_id']?>"><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                            <?
+                                                            <?php
                                                                     }
                                                                 }
                                                             ?>
                                                         </optgroup>
-                                                        <?
+                                                        <?php
                                                             }
                                                         ?>
                                                     </select>

@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($pos);die;
 ?>
 <!DOCTYPE html>
@@ -70,7 +70,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($invoices as $invoice) {
                                                             ?>
@@ -79,7 +79,7 @@
                                                                 <td>INV - 0<?=$invoice['invoice_id']?></td>
                                                                 <td><?=$invoice['sup_cus_company']?></td>
                                                                 <td>
-                                                                    <?
+                                                                    <?php
                                                                         foreach ($invoice_sum as $sum) {
                                                                             if ($sum['invoice_id'] == $invoice['invoice_id']) {
                                                                                 echo $sum['total_cost'];
@@ -88,19 +88,19 @@
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                <?
+                                                                <?php
                                                                     if ($invoice['invoice_status'] == 1) {
                                                                 ?>
                                                                         <span class="badge badge-pill badge-info"><i class="fas fa-lock-open"></i> Draft</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($invoice['invoice_status'] == 2){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-warning"><i class="fas fa-lock"></i> locked</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($invoice['invoice_status'] == 3){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Finalized (DC Genrated)</span>
-                                                                <?
+                                                                <?php
                                                                     }
                                                                 ?>
                                                                 </td>
@@ -108,7 +108,7 @@
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/print_invoice/<?=$invoice['invoice_id']?>"><i class="fas fa-exchange-alt"></i>
-                                                                        <?
+                                                                        <?php
                                                                             if ($invoice['invoice_status'] == 3) {
                                                                                 echo "View Invoice & Print";
                                                                             }
@@ -119,16 +119,16 @@
                                                                                 echo "Lock Invoice & Print";
                                                                             }
                                                                         ?></a>
-                                                                        <? if (in_array(45, $_SESSION['module_id']) && $invoice['invoice_status'] != 3){ ?>
+                                                                        <?php if (in_array(45, $_SESSION['module_id']) && $invoice['invoice_status'] != 3){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/edit_invoice/<?=$invoice['invoice_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Invoice</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(46, $_SESSION['module_id']) && $invoice['invoice_status'] == 1){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(46, $_SESSION['module_id']) && $invoice['invoice_status'] == 1){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/delete_invoice/<?=$invoice['invoice_id']?>"><i class="mdi mdi-delete"></i> Delete Invoices</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -156,7 +156,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -180,7 +180,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

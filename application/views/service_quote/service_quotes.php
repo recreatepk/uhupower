@@ -68,7 +68,7 @@
 									</tr>
 									</thead>
 									<tbody>
-									<?
+									<?php
 									$count = 1;
 									foreach ($quotes as $quote) {
 //										echo "<pre>";
@@ -77,7 +77,7 @@
 										<tr>
 											<td><?= $count ?></td>
 											<td>
-												<?
+												<?php
 												foreach ($suppliers as $customer) {
 													if ($customer['sup_cus_id'] == $quote['sup_cus_id']) {
 														echo $customer['sup_cus_company'] . ' (' . $customer['sup_cus_company'] . ')';
@@ -120,7 +120,7 @@
 																	</tr>
 																	</thead>
 																	<tbody>
-																	<?
+																	<?php
 																	$num = 1;
 																	$totalCostAfterTax = 0;
 																	foreach ($quotes_service as $rendered_service) {
@@ -134,7 +134,7 @@
 																				<td><?= $rendered_service['cost'] ?></td>
 																				<td><?= $rendered_service['tax'] ?> %</td>
 																				<td>
-																					<?
+																					<?php
 
 																					if ($rendered_service['tax'] == 0) {
 																						$taxPercentage = 1;
@@ -149,7 +149,7 @@
 																					?>
 																				</td>
 																			</tr>
-																			<?
+																			<?php
 																			$num++;
 																		}
 																	}
@@ -181,7 +181,7 @@
 																	</tr>
 																	</thead>
 																	<tbody>
-																	<?
+																	<?php
 																	$num = 1;
 																	$tpcostAfterTax = 0;
 																	foreach ($quotes_product as $rendered_services_product) {
@@ -195,7 +195,7 @@
 																				<td><?= $rendered_services_product['cost'] ?></td>
 																				<td><?= $rendered_services_product['tax'] ?></td>
 																				<td>
-																					<?
+																					<?php
 
 																					if ($rendered_services_product['tax'] == 0) {
 																						$ptaxPercentage = 1;
@@ -211,7 +211,7 @@
 																					?>
 																				</td>
 																			</tr>
-																			<?
+																			<?php
 																			$num++;
 																		}
 																	}
@@ -244,24 +244,24 @@
 												</div>
 											</td>
 											<td>
-												<?
+												<?php
 												if ($quote['status'] == 1) {
 													?>
 													<span class="badge badge-pill badge-info"><i class="fas fa-lock-open"></i> Draft</span>
-													<?
+													<?php
 												}if ($quote['status'] == 2){
 													?>
 													<span class="badge badge-pill badge-warning"><i class="fas fa-lock"></i> locked</span>
-													<?
+													<?php
 												}if ($quote['status'] == 3){
 													?>
 													<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Finalized</span>
-													<?
+													<?php
 												}
 												if ($quote['status'] == 4){
 													?>
 													<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Services Completed</span>
-													<?
+													<?php
 												}
 												?>
 											</td>
@@ -288,36 +288,36 @@
 														}
 														?>
 													</a>
-													<? if (in_array(96, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
+													<?php if (in_array(96, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/edit_quote/<?= $quote['service_quote_id'] ?>"><i
 																class="mdi mdi-grease-pencil"></i> Edit Quotes</a>
-													<?
+													<?php
 													} elseif (in_array(98, $_SESSION['module_id']) && $quote['status'] == 2) {
 														?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/edit_quote/<?= $quote['service_quote_id'] ?>"><i
 																class="mdi mdi-grease-pencil"></i> Edit Quotes</a>
-														<?
+														<?php
 													}
 													?>
-													<? if (in_array(97, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
+													<?php if (in_array(97, $_SESSION['module_id']) && $quote['status'] == 1) { ?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/delete_quote/<?= $quote['service_quote_id'] ?>"><i
 																class="mdi mdi-delete"></i> Delete Quotes</a>
-													<?
+													<?php
 													} elseif (in_array(98, $_SESSION['module_id']) && $quote['status'] == 2) {
 														?>
 														<a class="dropdown-item"
 														   href="<?= base_url() ?>Service_quote/delete_quote/<?= $quote['service_quote_id'] ?>"><i
 																class="mdi mdi-delete"></i> Delete Quotes</a>
-														<?
+														<?php
 													}
 													?>
 												</div>
 											</td>
 										</tr>
-										<?
+										<?php
 										$count++;
 									}
 									?>
@@ -340,7 +340,7 @@
 
 
 <?php $this->view('inc/footer.php'); ?>
-<?
+<?php
 if ($this->session->flashdata('del')) {
 	?>
 	<script>
@@ -364,10 +364,10 @@ if ($this->session->flashdata('del')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('assign')) {
 	?>
 	<script>
@@ -391,10 +391,10 @@ if ($this->session->flashdata('assign')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('dc')) {
 	?>
 	<script>
@@ -418,10 +418,10 @@ if ($this->session->flashdata('dc')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('status')) {
 	?>
 	<script>
@@ -445,10 +445,10 @@ if ($this->session->flashdata('status')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('completed')) {
 	?>
 	<script>
@@ -472,10 +472,10 @@ if ($this->session->flashdata('completed')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('invoice')) {
 	?>
 	<script>
@@ -499,7 +499,7 @@ if ($this->session->flashdata('invoice')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

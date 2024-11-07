@@ -54,25 +54,25 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 										<div class="row">
 											<div class="col-md-4 align-self-center"
 												 style="display: flex;align-items: center;flex-direction: column;">
-												<?
+												<?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													?>
 													<img
 														src="<?= base_url() ?>uploads/company/<?= $office_data->company_logo_name ?>"
 														style="height: 60px;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 2) {
 													?>
 													<img src="<?= base_url() ?>assets/images/uewlogo.png"
 														 style="height: 80px;min-height: 100%;width: 50%;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 3) {
 													?>
 													<img src="<?= base_url() ?>assets/images/ub_logo.png"
 														 style="height: 80px;min-height: 100%;width: 70%;">
-													<?
+													<?php
 												}
 												?>
 											</div><!--end col-->
@@ -143,7 +143,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 											<div class="col-md-2 no-print">
 												<div class="float-left">
 													<strong class="font-14">Status :</strong><br>
-													<?
+													<?php
 													if ($quotes[0]['quotation_order_status'] == 1) {
 														echo "<span class='badge badge-pill badge-info'><i class='fas fa-lock-open'></i> Draft</span>";
 													}
@@ -198,7 +198,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
 												</div>
 											</div>
-											<?
+											<?php
 											if ($quotes[0]['quotation_order_status'] == 3 || $quotes[0]['quotation_order_status'] == 4) {
 												?>
 												<div class="row">
@@ -208,7 +208,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 													</div>
 													<div class="col-md-12 align-self-center"
 														 style="display: flex;align-items: center;flex-direction: column; align-items: flex-start;padding-left: 70px; padding-right: 70px;">
-														<?
+														<?php
 														if ($quotation_details[0]['compnay_name'] == 1) {
 															?>
 
@@ -218,7 +218,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																src="<?= base_url() ?>uploads/<?= $employee_data[0]['employee_code'] ?>/<?= $employee_data[0]['employee_sign_file'] ?>"
 																style="height: 120px; position: absolute; top: 0; left: 9%;">
 
-															<?
+															<?php
 														}
 														if ($quotation_details[0]['compnay_name'] == 2) {
 															?>
@@ -232,7 +232,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	style="height: 140px; position: absolute; top: 0; left: 0;">
 															</div>
 
-															<?
+															<?php
 														}
 														if ($quotation_details[0]['compnay_name'] == 3) {
 															?>
@@ -243,7 +243,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																src="<?= base_url() ?>uploads/<?= $employee_data[0]['employee_code'] ?>/<?= $employee_data[0]['employee_sign_file'] ?>"
 																style="height: 140px; position: absolute; top: 0; left: 9%;">
 
-															<?
+															<?php
 														}
 														?>
 													</div><!--end col-->
@@ -254,7 +254,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														<p class="print-text-size-big mt-0 mb-0">
 															[<?= $employee_data[0]['employee_designation'] ?>]</p>
 														<p class="print-text-size-big mt-0 mb-0">
-															<?
+															<?php
 															if ($quotation_details[0]['compnay_name'] == 1) {
 																echo "UHU Powers";
 															}
@@ -269,7 +269,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 													</div>
 
 												</div>
-												<?
+												<?php
 											}
 											?>
 
@@ -279,31 +279,31 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
 										<div class="row">
 											<div class="col-md-4 align-self-center onlyPrint" style="margin-top:30px;">
-												<?
+												<?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													?>
 													<img
 														src="<?= base_url() ?>uploads/company/<?= $office_data->company_logo_name ?>"
 														style="height: 60px;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 2) {
 													?>
 													<img src="<?= base_url() ?>assets/images/uewlogo.png"
 														 style="height: 80px;min-height: 100%;width: 50%;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 3) {
 													?>
 													<img src="<?= base_url() ?>assets/images/ub_logo.png"
 														 style="height: 80px;min-height: 100%;width: 70%;">
-													<?
+													<?php
 												}
 												?>
 											</div><!--end col-->
 
 											<div class="col-sm-12 mt-3">
-												<h3 class="text-center" style="background-color: <?
+												<h3 class="text-center" style="background-color: <?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													echo '#b7042c';
 												}
@@ -329,7 +329,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														</tr><!--end tr-->
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														$taxed_amount = 0;
 														$tax_inclusive = 0;
@@ -346,7 +346,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																<td><?=$rendered_service['cost']?></td>
 																<td><?=$rendered_service['tax']?></td>
 																<td>
-																	<?
+																	<?php
 																	$taxed_amount = ($rendered_service['cost']) * ($rendered_service['tax'] / 100);
 																	$tax_inclusive = $taxed_amount + $rendered_service['cost'];
 																	echo $tax_inclusive;
@@ -355,7 +355,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	?>
 																</td>
 															</tr>
-															<?
+															<?php
 															$count++;
 														}
 														?>
@@ -373,7 +373,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
 
 											<div class="col-sm-12 mt-3">
-												<h3 class="text-center" style="background-color: <?
+												<h3 class="text-center" style="background-color: <?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													echo '#b7042c';
 												}
@@ -401,7 +401,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														</tr><!--end tr-->
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														$taxed_amount = 0;
 														$tax_inclusive = 0;
@@ -429,7 +429,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	?>
 																</td>
 																<td>
-																	<?
+																	<?php
 																	$taxed_amount = ($product['quotation_cost']) * ($product['quotation_tax'] / 100);
 																	$tax_inclusive = ($taxed_amount * $product['quotation_qty']) + ($product['quotation_cost'] * $product['quotation_qty']);
 																	echo $tax_inclusive;
@@ -438,7 +438,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	?>
 																</td>
 															</tr>
-															<?
+															<?php
 															$count++;
 														}
 														?>
@@ -457,30 +457,30 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 										<div class="pagebreak"></div>
 										<div class="row">
 											<div class="col-md-4 align-self-center onlyPrint" style="margin-top:30px;">
-												<?
+												<?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													?>
 													<img
 														src="<?= base_url() ?>uploads/company/<?= $office_data->company_logo_name ?>"
 														style="height: 60px;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 2) {
 													?>
 													<img src="<?= base_url() ?>assets/images/uewlogo.png"
 														 style="height: 80px;min-height: 100%;width: 50%;">
-													<?
+													<?php
 												}
 												if ($quotation_details[0]['compnay_name'] == 3) {
 													?>
 													<img src="<?= base_url() ?>assets/images/ub_logo.png"
 														 style="height: 80px;min-height: 100%;width: 70%;">
-													<?
+													<?php
 												}
 												?>
 											</div><!--end col-->
 											<div class="col-sm-12 mt-3">
-												<h3 class="text-center" style="background-color: <?
+												<h3 class="text-center" style="background-color: <?php
 												if ($quotation_details[0]['compnay_name'] == 1) {
 													echo '#b7042c';
 												}
@@ -520,7 +520,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 													<button onclick="printContent('printme');" class="btn btn-info"><i
 															class="fa fa-print"></i> Print
 													</button>
-													<?
+													<?php
 													if ($quotes[0]['quotation_order_status'] != 4) {
 														if ($quotes[0]['quotation_order_status'] == 1) {
 															$link = '2/' . $quotes[0]['quotation_id'];
@@ -537,7 +537,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														?>
 														<a class="btn btn-primary"
 														   href="<?= base_url() ?>Quotation/change_status/<?= $link ?>"><?= $name ?></a>
-														<?
+														<?php
 													}
 													?>
 
@@ -564,7 +564,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
 
 <?php $this->view('inc/footer.php'); ?>
-<?
+<?php
 if ($this->session->flashdata('status')) {
 	?>
 	<script>
@@ -588,7 +588,7 @@ if ($this->session->flashdata('status')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

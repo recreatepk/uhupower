@@ -76,7 +76,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($qoutations as $qoutation) {
                                                             ?>
@@ -172,24 +172,24 @@
 																</td>-->
 
                                                                 <td>
-                                                                <?
+                                                                <?php
                                                                     if ($qoutation['quotation_order_status'] == 1) {
                                                                 ?>
                                                                         <span class="badge badge-pill badge-info"><i class="fas fa-lock-open"></i> Draft</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($qoutation['quotation_order_status'] == 2){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-warning"><i class="fas fa-lock"></i> locked</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($qoutation['quotation_order_status'] == 3){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Finalized</span>
-                                                                <?
+                                                                <?php
                                                                     }
                                                                     if ($qoutation['quotation_order_status'] == 4){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Invoice Generated</span>
-                                                                <?
+                                                                <?php
                                                                     }
                                                                 ?>
                                                                 </td>
@@ -197,7 +197,7 @@
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/change_quotation_status/<?=$qoutation['quotation_id']?>"><i class="fas fa-exchange-alt"></i>
-                                                                        <?
+                                                                        <?php
                                                                             if ($qoutation['quotation_order_status'] == 4) {
                                                                                 echo "View Quotes & print";
                                                                             }
@@ -211,16 +211,16 @@
                                                                                 echo "Lock Quotes & print";
                                                                             }
                                                                         ?></a>
-                                                                        <? if (in_array(40, $_SESSION['module_id']) && $qoutation['quotation_order_status'] != 4){ ?>
+                                                                        <?php if (in_array(40, $_SESSION['module_id']) && $qoutation['quotation_order_status'] != 4){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/edit_quotation/<?=$qoutation['quotation_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Quotes</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(41, $_SESSION['module_id']) && $qoutation['quotation_order_status'] == 1){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(41, $_SESSION['module_id']) && $qoutation['quotation_order_status'] == 1){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Quotation/delete_quotation/<?=$qoutation['quotation_id']?>"><i class="mdi mdi-delete"></i> Delete Quotes</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -248,7 +248,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -272,10 +272,10 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('qty_error')){
 ?>
 <script>
@@ -299,7 +299,7 @@ if($this->session->flashdata('qty_error')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
  <script>

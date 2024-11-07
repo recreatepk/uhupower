@@ -45,12 +45,12 @@
                                                                 <label>Select Customer *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="supplier_id">
                                                                     <optgroup label="Select Supplier / Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($customers as $customer) {
                                                                             
                                                                         ?>
                                                                         <option <?=$retVal = ($customer['sup_cus_id'] == $rendered_services[0]['sup_cus_id']) ? 'selected' : '' ;?> value="<?=$customer['sup_cus_id']?>"><?=$customer['sup_cus_company']?> - <?=$customer['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                     }
                                                                         ?>
                                                                     </optgroup>
@@ -68,7 +68,7 @@
                                                                 <fieldset style="background: #1761fd30;border-radius: 16px;padding: 20px;">
                                                                     <div class="repeater-custom-show-hide">
                                                                         <div data-repeater-list="service">
-                                                        <?
+                                                        <?php
                                                             foreach ($rendered_services as $rendered_service) {
                                                         ?>
                                                                             <div data-repeater-item="">
@@ -78,12 +78,12 @@
                                                                                         <div class="col-sm-6">
                                                                                             <label>Select Services needs to be Rendered *</label>
                                                                                             <select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($services as $service) {
                                                                                                 ?>
                                                                                                     <option <?=$retVal = ($service['service_id'] == $rendered_service['service_id']) ? 'selected' : '' ;?> value="<?=$service['service_id']?>"><?=$service['service_name']?></option>
                                                                                                     
-                                                                                                <?
+                                                                                                <?php
                                                                                                     }
                                                                                                 ?>
                                                                                             </select>
@@ -111,7 +111,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                        <?
+                                                        <?php
                                                             }
                                                         ?>
                                                                         </div>
@@ -126,7 +126,7 @@
                                                                 <fieldset style="background: #1761fd30;border-radius: 16px;padding: 20px;margin-top: 10px;">
                                                                     <div class="repeater-custom-show-hide">
                                                                         <div data-repeater-list="products">
-                                                        <?
+                                                        <?php
                                                             foreach ($rendered_services_product as $rendered_service_product) {
                                                                 if ($rendered_service_product['render_service_id'] != '') {
                                                         ?>
@@ -137,21 +137,21 @@
                                                                                     <div class="col-sm-6">
                                                                                         <label>Select Parts as Need *</label>
                                                                                         <select class="form-control custom-select product-select" style="width: 100%; height:36px;" name="product_id" required>
-                                                                                        <?
+                                                                                        <?php
                                                                                             foreach ($product_categories as $product_category) {
                                                                                       ?>
                                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($products as $product) {
                                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                                 ?>
                                                                                                             <option data-po="<?=$product['purchase_order_id']?>" <?=$retVal = ($product['product_id'] == $rendered_service_product['product_id']) ? 'selected' : '' ;?>  value="<?=$product['product_id']?>"><?=$product['product_name']?> </option>
-                                                                                                <?
+                                                                                                <?php
                                                                                                         }
                                                                                                     }
                                                                                                 ?>
                                                                                             </optgroup>
-                                                                                        <?
+                                                                                        <?php
                                                                                             }
                                                                                         ?>
                                                                                         </select>
@@ -185,7 +185,7 @@
                                                                             </div>
                                                                         </div>
                                                                     
-                                                        <?
+                                                        <?php
                                                                 }else{
                                                                     ?>
                                                                         <div data-repeater-item="">
@@ -194,21 +194,21 @@
                                                                                     <div class="col-sm-6">
                                                                                         <label>Select Parts as Need *</label>
                                                                                         <select class="form-control custom-select product-select" style="width: 100%; height:36px;" name="product_id" required>
-                                                                                        <?
+                                                                                        <?php
                                                                                             foreach ($product_categories as $product_category) {
                                                                                       ?>
                                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($products as $product) {
                                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                                 ?>
                                                                                                             <option data-po="<?=$product['purchase_order_id']?>" value="<?=$product['product_id']?>"><?=$product['product_name']?> </option>
-                                                                                                <?
+                                                                                                <?php
                                                                                                         }
                                                                                                     }
                                                                                                 ?>
                                                                                             </optgroup>
-                                                                                        <?
+                                                                                        <?php
                                                                                             }
                                                                                         ?>
                                                                                         </select>
@@ -241,7 +241,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    <?
+                                                                    <?php
                                                                 }
                                                             }
                                                         ?>
@@ -305,7 +305,7 @@
         
     });
 </script>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -329,7 +329,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

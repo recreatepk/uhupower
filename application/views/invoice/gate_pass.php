@@ -102,7 +102,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                     <div class="col-md-2 no-print">                                            
                                                         <div class="float-left">
                                                             <strong class="font-14">Status :</strong><br>
-                                                            <?
+                                                            <?php
                                                                 if ($dcs[0]['status'] == 1) {
                                                                     echo "<span class='badge badge-pill badge-info'><i class='fas fa-ban'></i> Not Authurized</span>";
                                                                 }
@@ -140,7 +140,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$dc['invoice_qty']?></td>
                                                                             
                                                                         </tr>
-                                                                    <?
+                                                                    <?php
                                                                         $count++;
                                                                         }
                                                                     ?>
@@ -194,7 +194,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('status')){
 ?>
 <script>
@@ -218,11 +218,11 @@ if($this->session->flashdata('status')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 if($this->session->flashdata('qty_error')){
 ?>
 <script>
@@ -246,7 +246,7 @@ if($this->session->flashdata('qty_error')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

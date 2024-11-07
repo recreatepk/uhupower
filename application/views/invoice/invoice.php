@@ -92,7 +92,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                     <div class="col-md-2 no-print">                                            
                                                         <div class="float-left">
                                                             <strong class="font-14">Status :</strong><br>
-                                                            <?
+                                                            <?php
                                                                 if ($invoices[0]['invoice_status'] == 1) {
                                                                     echo "<span class='badge badge-pill badge-info'><i class='fas fa-lock-open'></i> Draft</span>";
                                                                 }
@@ -138,13 +138,13 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$count?></td>
                                                                             <td><?=$product['product_name']?></td>
                                                                             <td><?=$product['invoice_qty']?></td>
-                                                                            <?
+                                                                            <?php
                                                                                 $total_qty += $product['invoice_qty'];
                                                                             ?>
                                                                             <td><?=$product['invoice_cost']?></td>
                                                                             <td><?=$product['invoice_tax']?></td>
                                                                             <td>
-                                                                            <?
+                                                                            <?php
                                                                                 $taxed_amount = ($product['invoice_cost'])*($product['invoice_tax']/100);
                                                                                 $tax_inclusive = ($taxed_amount*$product['invoice_qty'])+($product['invoice_cost']*$product['invoice_qty']);
                                                                                 echo $tax_inclusive;
@@ -153,7 +153,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             ?>
                                                                             </td>
                                                                         </tr>
-                                                                    <?
+                                                                    <?php
                                                                         $count++;
                                                                         }
                                                                     ?>
@@ -189,15 +189,15 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                     <div class="col-lg-12 col-xl-4">
                                                         <div class="float-right d-print-none">
                                                             <button onclick="printContent('printme');" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-                                                            <?
+                                                            <?php
                                                                 if ($invoices[0]['invoice_status'] != 3) {
                                                                     if ($invoices[0]['invoice_status'] == 2 && !empty($unique_identifiers) && in_array(47, $_SESSION['module_id'])) {
                                                             ?> 
                                                                         <button type="button" class="btn btn-primary no-print" data-toggle="modal" data-target="#bd-example-modal-xl">Finalize Invoice</button>
-                                                            <?
+                                                            <?php
                                                                     }else{
                                                             ?>
-                                                                        <a href="<?=base_url()?>Quotation/change_invoice_status/<?if ($invoices[0]['invoice_status'] == 1) {
+                                                                        <a href="<?=base_url()?>Quotation/change_invoice_status/<?php if ($invoices[0]['invoice_status'] == 1) {
                                                                             echo '2';
                                                                             echo "/";
                                                                             echo $invoices[0]['invoice_id'];
@@ -208,12 +208,12 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                 echo $invoices[0]['invoice_id'];
                                                                                 
                                                                             }
-                                                                        }?>" class="btn btn-primary"><?if ($invoices[0]['invoice_status'] == 1) {
+                                                                        }?>" class="btn btn-primary"><?php if ($invoices[0]['invoice_status'] == 1) {
                                                                             echo 'Lock Invoice';
                                                                         }else{
                                                                             echo "Finilize Invoice";
                                                                         }?></a>
-                                                            <?
+                                                            <?php
                                                                     }
                                                                 }
                                                             ?>
@@ -306,7 +306,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('status')){
 ?>
 <script>
@@ -330,11 +330,11 @@ if($this->session->flashdata('status')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 if($this->session->flashdata('qty_error')){
 ?>
 <script>
@@ -359,7 +359,7 @@ if($this->session->flashdata('qty_error')){
       
     });
 </script>
-<?
+<?php
 }
 ?>
 

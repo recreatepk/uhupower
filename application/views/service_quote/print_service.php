@@ -102,7 +102,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                 <abbr title="Phone">P:</abbr> <?=$rendered_services[0]['sup_cus_phone1']?>
                                                             </address>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             if ($rendered_services[3]['status'] == 2 || $rendered_services[3]['status'] == 3 || $rendered_services[3]['status'] == 4) {
                                                                 if (!isset($rendered_services[3]['company_name']) || empty($rendered_services[3]['company_name']) || $rendered_services[3]['company_name'] == '') {
                                                         ?>
@@ -123,7 +123,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     <button style="margin-bottom: 5px;" type="submit" class="btn btn-primary px-4 text-right">Save and Change Status</button>
                                                                 </div>
                                                             </form>
-                                                        <?
+                                                        <?php
                                                                 }
                                                                 else{
                                                         ?>
@@ -136,7 +136,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <abbr title="Phone">P:</abbr> <?=$rendered_services[3]['number']?>
                                                                         </address>
                                                                     </div>
-                                                        <?
+                                                        <?php
                                                                 }
                                                             }
                                                         ?>
@@ -144,7 +144,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                     <div class="col-md-2 no-print">                                            
                                                         <div class="float-left">
                                                             <strong class="font-14">Status :</strong><br>
-                                                            <?
+                                                            <?php
                                                                 if ($rendered_services[0]['status'] == 1) {
                                                                     echo "<span class='badge badge-pill badge-light'>Draft</span>";
                                                                 }
@@ -167,7 +167,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
                                                 <div class="row" style="border-bottom: 4px double #b6c2e4;">
 													<div class="col-sm-12 mt-3">
-														<h3 class="text-center" style="background-color: <?
+														<h3 class="text-center" style="background-color: <?php
 														if ($rendered_services[3]['company_name'] == 1) {
 															echo '#b7042c';
 														}
@@ -238,7 +238,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 
                                                 <div class="row">
 													<div class="col-sm-12 mt-3">
-														<h3 class="text-center" style="background-color: <?
+														<h3 class="text-center" style="background-color: <?php
 														if ($rendered_services[3]['company_name'] == 1) {
 															echo '#b7042c';
 														}
@@ -264,7 +264,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     </tr><!--end tr-->
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?
+                                                                    <?php
                                                                         $num = 1;
                                                                         $tpcostAfterTax = 0;
                                                                         $sub_total_p = 0;
@@ -279,7 +279,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                 <td><?=$rendered_services_product['cost']?></td>
                                                                                 <td><?=$rendered_services_product['tax']?></td>
                                                                                 <td>
-                                                                                    <?
+                                                                                    <?php
 
                                                                                         if ($rendered_services_product['tax'] == 0) {
                                                                                             $ptaxPercentage = 1;
@@ -296,7 +296,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                     ?>
                                                                                 </td>
                                                                             </tr>
-                                                                    <?
+                                                                    <?php
                                                                                 $num++;
                                                                             }
                                                                     ?>
@@ -318,7 +318,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                 </div><!--end row-->
                                                 <div class="row justify-content-center">
 													<div class="col-sm-12 mt-3">
-														<h3 class="text-center" style="background-color: <?
+														<h3 class="text-center" style="background-color: <?php
 														if ($rendered_services[3]['company_name'] == 1) {
 															echo '#b7042c';
 														}
@@ -340,7 +340,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                         <div class="text-center"><small class="font-12">Pleasure doing business with you.</small></div>
                                                     </div><!--end col-->
                                                     <div class="col-lg-12 col-xl-4">
-                                                        <?
+                                                        <?php
                                                             if ($rendered_services[0]['status'] != 2) {
                                                         ?>
                                                         <div class="float-right d-print-none">
@@ -372,7 +372,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('status')){
 ?>
 <script>
@@ -396,7 +396,7 @@ if($this->session->flashdata('status')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

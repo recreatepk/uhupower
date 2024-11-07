@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($departments as $department) {
                                                             ?>
@@ -61,16 +61,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(85, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(85, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Department/edit_department/<?=$department['department_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit department</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(86, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(86, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>department/delete_department/<?=$department['department_id']?>"><i class="mdi mdi-delete"></i> Delete department</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -98,7 +98,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -122,7 +122,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

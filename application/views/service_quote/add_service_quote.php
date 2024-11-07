@@ -63,12 +63,12 @@
                                                                 <label>Select Customer *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="supplier_id">
                                                                     <optgroup label="Select Supplier / Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($suppliers as $customer) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$customer['sup_cus_id']?>"><?=$customer['sup_cus_company']?> - <?=$customer['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                     }
                                                                         ?>
                                                                     </optgroup>
@@ -81,12 +81,12 @@
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="complaint_id">
                                                                     <optgroup label="Select Complaint">
                                                                         <option>No Complaint</option>
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($complaints as $complaint) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$complaint['complaint_id']?>"><?=$complaint['complaint_id']?> - <?=$complaint['complaint_description']?></option>
-                                                                        <?
+                                                                        <?php
                                                                     }
                                                                         ?>
                                                                     </optgroup>
@@ -115,12 +115,12 @@
                                                                                     <div class="col-sm-5">
                                                                                         <label>Select Services needs to be Rendered *</label>
                                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
-                                                                                            <?
+                                                                                            <?php
                                                                                                 foreach ($services as $service) {
                                                                                             ?>
                                                                                                 <option value="<?=$service['service_id']?>"><?=$service['service_name']?></option>
                                                                                                 
-                                                                                            <?
+                                                                                            <?php
                                                                                                 }
                                                                                             ?>
                                                                                         </select>
@@ -172,21 +172,21 @@
                                                                                     <div class="col-sm-5">
                                                                                         <label>Select Parts as Need *</label>
                                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="product_id" required>
-                                                                                        <?
+                                                                                        <?php
                                                                                             foreach ($product_cats as $product_category) {
                                                                                       ?>
                                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($products as $product) {
                                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                                 ?>
                                                                                                             <option value="<?=$product['product_id']?>"><?=$product['product_name']?> </option>
-                                                                                                <?
+                                                                                                <?php
                                                                                                         }
                                                                                                     }
                                                                                                 ?>
                                                                                             </optgroup>
-                                                                                        <?
+                                                                                        <?php
                                                                                             }
                                                                                         ?>
                                                                                         </select>
@@ -255,7 +255,7 @@
 <?php $this->view('inc/footer.php');?>
 <script src="<?=base_url()?>assets/plugins/repeater/jquery.repeater.min.js"></script>
 <script src="<?=base_url()?>assets/pages/jquery.form-repeater.js"></script>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -279,7 +279,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

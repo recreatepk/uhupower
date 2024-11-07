@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($pos);die;
 ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($pos as $po) {
                                                             ?>
@@ -78,19 +78,19 @@
                                                                 <td>PO - 0<?=$po['purchase_order_id']?></td>
                                                                 <td><?=$po['sup_cus_company']?></td>
                                                                 <td>
-                                                                <?
+                                                                <?php
                                                                     if ($po['purchase_order_status'] == 0) {
                                                                 ?>
                                                                         <span class="badge badge-pill badge-danger"><i class="fas fa-lock-open"></i> Unlocked & Requires Approval</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($po['purchase_order_status'] == 1){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-warning"><i class="fas fa-lock"></i> locked & Approved</span>
-                                                                <?
+                                                                <?php
                                                                     }if ($po['purchase_order_status'] == 2){
                                                                 ?>
                                                                         <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Finalized (GRN Created)</span>
-                                                                <?
+                                                                <?php
                                                                     }
                                                                 ?>
                                                                 </td>
@@ -98,9 +98,9 @@
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
                                                                         <a class="dropdown-item" href="<?=base_url()?>Purchase_order/print_purchase_order/<?=$po['purchase_order_id']?>"><i class="fas fa-print"></i> Print PO</a>
-                                                                        <? if (in_array(27, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(27, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Purchase_order/change_purchase_order_status/<?=$po['purchase_order_id']?>"><i class="fas fa-exchange-alt"></i>
-                                                                        <?
+                                                                        <?php
                                                                             if ($po['purchase_order_status'] == 2) {
                                                                                 echo "View PO";
                                                                             }
@@ -111,17 +111,17 @@
                                                                                 echo "Lock PO";
                                                                             }
                                                                         ?></a>
-                                                                        <?}?>
-                                                                        <? if (in_array(24, $_SESSION['module_id']) && $po['purchase_order_status'] == 0 || $po['purchase_order_status'] == 1){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(24, $_SESSION['module_id']) && $po['purchase_order_status'] == 0 || $po['purchase_order_status'] == 1){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Purchase_order/edit_purchase_order/<?=$po['purchase_order_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit PO</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(26, $_SESSION['module_id']) && $po['purchase_order_status'] == 0 || $po['purchase_order_status'] == 1){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(26, $_SESSION['module_id']) && $po['purchase_order_status'] == 0 || $po['purchase_order_status'] == 1){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Purchase_order/delete_purchase_order/<?=$po['purchase_order_id']?>"><i class="mdi mdi-delete"></i> Delete PO</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -149,7 +149,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -173,10 +173,10 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('status_lock')){
 ?>
 <script>
@@ -200,10 +200,10 @@ if($this->session->flashdata('status_lock')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('status_approve')){
 ?>
 <script>
@@ -227,7 +227,7 @@ if($this->session->flashdata('status_approve')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

@@ -83,7 +83,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($Products as $product) {
                                                                     foreach ($product as $pro) {
@@ -92,7 +92,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$count?></td>
                                                                             <td><?=$pro['product_name']?><p style="font-size: 12px;"><?=$pro['product_description']?></p></td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                 $productBadgePrinted = false;
                                                                                     foreach ($dcs as $dc) {
                                                                                         if ($dc['purchase_dc_product_id'] == $pro['purchase_order_product_id']) {
@@ -100,19 +100,19 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                                 $productBadgePrinted = true; // Set the variable to true to avoid printing the badge multiple times
                                                                                             ?>
                                                                                                 <span class="badge badge-pill badge-danger"><i class="fas fa-ban"></i> Not Yet Received</span>
-                                                                                            <?
+                                                                                            <?php
                                                                                             } 
                                                                                             elseif ($dc['purchase_dc_qty_rcv'] < $dc['purchase_dc_qty'] && !$productBadgePrinted) {
                                                                                                 $productBadgePrinted = true; // Set the variable to true to avoid printing the badge multiple times
                                                                                             ?>
                                                                                                 <span class="badge badge-pill badge-warning"><i class="fas fa-adjust"></i> Partially Received</span>
-                                                                                            <?
+                                                                                            <?php
                                                                                             }
                                                                                             elseif ($dc['purchase_dc_qty_rcv'] == $dc['purchase_dc_qty'] && !$productBadgePrinted) {
                                                                                                 $productBadgePrinted = true; // Set the variable to true to avoid printing the badge multiple times
                                                                                             ?>
                                                                                                 <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Received</span>
-                                                                                            <?
+                                                                                            <?php
                                                                                             }
                                                                                         }
                                                                                     }
@@ -120,7 +120,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             </td>
                                                                             <td><?=$pro['purchase_order_product_qty']?></td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($dcs as $dc) {
                                                                                         if ($dc['purchase_dc_product_id'] == $pro['purchase_order_product_id']) {
                                                                                             echo $dc['purchase_dc_qty_rcv'];
@@ -129,7 +129,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                                 ?>
                                                                             </td>
                                                                         </tr>
-                                                            <?
+                                                            <?php
                                                                         $count++;
                                                                     }
                                                                 }

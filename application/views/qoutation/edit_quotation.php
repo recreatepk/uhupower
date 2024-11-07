@@ -65,29 +65,29 @@
                                                                 <label>Select Customer *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="quotation_supplier_id">
                                                                     <optgroup label="Select Customer">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 2) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$supplier['sup_cus_id']?>" <? if ($quotation['quotation_supplier_id'] == $supplier['sup_cus_id']) {
+                                                                        <option value="<?=$supplier['sup_cus_id']?>" <?php if ($quotation['quotation_supplier_id'] == $supplier['sup_cus_id']) {
                                                                            echo "selected";
                                                                         } ?>><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
                                                                     </optgroup>
                                                                     <optgroup label="Select Supplier">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_suppliers as $supplier) {
                                                                                 if ($supplier['cat'] == 1) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$supplier['sup_cus_id']?>" <? if ($quotation['quotation_supplier_id'] == $supplier['sup_cus_id']) {
+                                                                        <option value="<?=$supplier['sup_cus_id']?>" <?php if ($quotation['quotation_supplier_id'] == $supplier['sup_cus_id']) {
                                                                            echo "selected";
                                                                         } ?>><?=$supplier['sup_cus_company']?> - <?=$supplier['sup_cus_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                                 }
                                                                             }
                                                                         ?>
@@ -106,7 +106,7 @@
                                                                 <input class="form-control" name="quotation_order_date" type="date" value="<?= $quotation_order_date ?>" id="example-date-input" required>
                                                             </div>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             $index = 2000;
                                                             foreach ($quotation_products as $quotation_product) {
                                                         ?>
@@ -115,27 +115,27 @@
                                                                 <div class="col-sm-3">
                                                                     <label>Select Products for Purchase *</label>
                                                                     <select class="form-control custom-select" style="width: 100%; height:36px;" name="products[<?= $index ?>][quotation_product_id]" required>
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($all_product_categories as $product_category) {
                                                                         ?>
                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($all_products as $product) {
                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                 ?>
                                                                                             <option value="<?=$product['product_id']?>" 
-                                                                                            <?
+                                                                                            <?php
                                                                                                 if ($quotation_product['quotation_product_id'] == $product['product_id']) {
                                                                                                     echo "selected";
                                                                                                 }
                                                                                             ?>
                                                                                             ><?=$product['product_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
                                                                             </optgroup>
-                                                                        <?
+                                                                        <?php
                                                                             }
                                                                         ?>
                                                                     </select>
@@ -163,7 +163,7 @@
                                                                 
                                                             </div>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             $index++;
                                                             }
                                                         ?>
@@ -177,21 +177,21 @@
                                                                                     <label>Select Products for Purchase *</label>
                                                                                     <select class="form-control custom-select product-select" style="width: 100%; height:36px;" name="quotation_product_id" required>
                                                                                         <option>Select Products</option>
-                                                                                        <?
+                                                                                        <?php
                                                                                             foreach ($all_product_categories as $product_category) {
                                                                                         ?>
                                                                                             <optgroup label="<?=$product_category['product_category_name']?>">
-                                                                                                <?
+                                                                                                <?php
                                                                                                     foreach ($all_products as $product) {
                                                                                                         if ($product['product_category_id'] == $product_category['product_category_id']) {
                                                                                                 ?>
                                                                                                             <option data-po="<?=$product['purchase_order_id']?>" data-cost="<?=$product['inventory_product_cost']?>" data-qty="<?=$product['inventory_product_qty']?>" value="<?=$product['product_id']?>"><?=$product['product_name']?></option>
-                                                                                                <?
+                                                                                                <?php
                                                                                                         }
                                                                                                     }
                                                                                                 ?>
                                                                                             </optgroup>
-                                                                                        <?
+                                                                                        <?php
                                                                                             }
                                                                                         ?>
                                                                                     </select>
@@ -238,14 +238,14 @@
 															<h5 style="text-align: center;">Update Services</h5>
 														</div>
 
-														<?
+														<?php
 															if (!empty($quote_services)) {
 														?>
 														<fieldset
 															style="background: #1761fd30;border-radius: 16px;padding: 20px;">
 															<div class="repeater-custom-show-hide">
 																<div data-repeater-list="service">
-																	<?
+																	<?php
 																	foreach ($quote_services as $service_quote) {
 																		?>
 																		<div data-repeater-item="">
@@ -260,13 +260,13 @@
 																							style="width: 100%; height:36px;"
 																							name="render_service_id"
 																							required>
-																							<?
+																							<?php
 																							foreach ($services as $service) {
 																								?>
 																								<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
 																									value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
 
-																								<?
+																								<?php
 																							}
 																							?>
 																						</select>
@@ -304,7 +304,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<?
+																		<?php
 																	}
 																	?>
 																</div>
@@ -314,7 +314,7 @@
 																</span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 															} else {
 														?>
 
@@ -334,13 +334,13 @@
 																						style="width: 100%; height:36px;"
 																						name="render_service_id"
 																						required>
-																						<?
+																						<?php
 																						foreach ($services as $service) {
 																							?>
 																							<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
 																								value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
 
-																							<?
+																							<?php
 																						}
 																						?>
 																					</select>
@@ -385,7 +385,7 @@
 																</span>
 															</div>
 														</fieldset>
-														<?
+														<?php
 															}
 														?>
 													</div>
@@ -430,7 +430,7 @@
 <?php $this->view('inc/footer.php');?>
 <script src="<?=base_url()?>assets/plugins/repeater/jquery.repeater.min.js"></script>
 <script src="<?=base_url()?>assets/pages/jquery.form-repeater.js"></script>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -454,7 +454,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

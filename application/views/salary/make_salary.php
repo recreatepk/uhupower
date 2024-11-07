@@ -71,7 +71,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?
+                                                    <?php
                                                         $count = 1;
                                                         foreach ($users as $user) {
                                                     ?>
@@ -89,7 +89,7 @@
                                                             <span style="color: #1761fd;"><?=$user['employee_designation']?></span>
                                                         </td>
                                                         <td>
-                                                            <?
+                                                            <?php
                                                                 $presents = 0;
                                                                 $absents = 0;
                                                                 $lates = 0;
@@ -139,7 +139,7 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <?
+                                                            <?php
                                                                 $yearly_leaves = 0;
                                                                 foreach ($yearly_leave as $leave) {
                                                                     if ($leave['employee_id'] == $user['employee_id']) {
@@ -150,7 +150,7 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <?
+                                                            <?php
                                                                 echo "Current Salary = PKR. ".$user['employee_salary'];
                                                                 echo "<br>";
                                                                 $day_salary = $user['employee_salary']/30;
@@ -189,7 +189,7 @@
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Milage (KM)</label>
-                                                                <input type="number" class="form-control" id="milage<?=$user['employee_id']?>" name="milage[]" value="<?
+                                                                <input type="number" class="form-control" id="milage<?=$user['employee_id']?>" name="milage[]" value="<?php
                                                                     if(isset($monthly_salary) && $monthly_salary != ''){
                                                                         foreach($monthly_salary as $salaries){
                                                                             if($salaries['salary_employee_id'] == $user['employee_id']){
@@ -202,7 +202,7 @@
                                                             <div class="form-group">
                                                                 <label>Fuel Price PKR.</label>
                                                                 <input type="number" class="form-control" id="fuelprice<?=$user['employee_id']?>" name="fuelprice[]" 
-                                                                value="<?
+                                                                value="<?php
                                                                     if(isset($monthly_salary) && $monthly_salary != ''){
                                                                         foreach($monthly_salary as $salaries){
                                                                             if($salaries['salary_employee_id'] == $user['employee_id']){
@@ -212,11 +212,11 @@
                                                                         }
                                                                     }
                                                                 ?>" required>
-                                                                <?
+                                                                <?php
                                                                     if (isset($salary_id) && $salary_id != '') {
                                                                 ?>
                                                                         <input type="hidden" name="salary_id[]" value="<?=$salary_id?>">
-                                                                <?
+                                                                <?php
                                                                     }
                                                                 ?>
                                                                 
@@ -226,7 +226,7 @@
                                                          <td>
                                                              <div class="form-group">
                                                                 <label>Final Salary PKR.</label>
-                                                                <input type="number" class="form-control" id="salary<?=$user['employee_id']?>" name="salary[]" value="<?
+                                                                <input type="number" class="form-control" id="salary<?=$user['employee_id']?>" name="salary[]" value="<?php
                                                                     if(isset($monthly_salary) && $monthly_salary != ''){
                                                                         foreach($monthly_salary as $salaries){
                                                                             if($salaries['salary_employee_id'] == $user['employee_id']){
@@ -240,7 +240,7 @@
                                                          
                                                          
                                                     </tr>
-                                                    <?
+                                                    <?php
                                                         $count++;
                                                         }
                                                     ?>
@@ -266,7 +266,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -290,12 +290,12 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 
 <script>
-    <?
+    <?php
         foreach ($users as $user) {
     ?>
     document.getElementById('fuelprice<?=$user['employee_id']?>').addEventListener('input', function() {
@@ -314,7 +314,7 @@ if($this->session->flashdata('del')){
         // Update the Final Salary input box with the new value
         document.getElementById('salary<?=$user['employee_id']?>').value = finalSalary.toFixed(2); // Display with 2 decimal places
     });
-    <?
+    <?php
         }
     ?>
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -68,7 +68,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($expenses as $expense) {
                                                             ?>
@@ -76,7 +76,7 @@
                                                                 <td><?=$count?></td>
                                                                 <td><?=$expense['expense_date']?></td>
                                                                 <td>
-                                                            <?
+                                                            <?php
                                                                     foreach ($expenses_categories as $expenses_category) {
                                                                         if ($expenses_category['expense_category_id'] == $expense['expense_category_id']) {
                                                                             echo $expenses_category['expense_name'];
@@ -89,16 +89,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(57, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(57, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Expense/edit_expense/<?=$expense['expense_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Expense</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(58, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(58, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Expense/delete_expense/<?=$expense['expense_id']?>"><i class="mdi mdi-delete"></i> Delete Expense</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -126,7 +126,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -150,7 +150,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

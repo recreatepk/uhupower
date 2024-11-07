@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($expense_categories as $expense_category) {
                                                             ?>
@@ -60,16 +60,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(61, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(61, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Expense/edit_expense_category/<?=$expense_category['expense_category_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Category</a>
-                                                                        <?}?>
-                                                                        <? if (in_array(62, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(62, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Expense/delete_expense_category/<?=$expense_category['expense_category_id']?>"><i class="mdi mdi-delete"></i> Delete Category</a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -97,7 +97,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -121,7 +121,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

@@ -66,18 +66,18 @@
                                                                     <? foreach ($main_modules as $module) { ?>
                                                                     <tr>
                                                                         <td>
-                                                                        <?
+                                                                        <?php
                                                                             echo $module['name'];
                                                                         ?>
                                                                         </td>
                                                                         <td>
-                                                                             <? 
+                                                                             <?php
                                                                             foreach ($modules as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'A') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?
+                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -87,20 +87,20 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                             <? 
+                                                                             <?php
                                                                             foreach ($modules as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'V') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?
+                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -110,20 +110,20 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($modules as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'E' || substr($permission['module_name'],0,1) == 'R') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?
+                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -133,20 +133,20 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                         <td>
-                                                                            <? 
+                                                                            <?php
                                                                             foreach ($modules as $permission) { 
                                                                                 if ($permission['main_module_id'] == $module['main_module_id']) {
                                                                                     if (substr($permission['module_name'],0,1) == 'D') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?
+                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -156,14 +156,14 @@
                                                                                                 <label class="custom-control-label" for="customCheck<?=$permission['module_id']?>"><?=$permission['module_name']?></label>
                                                                                             </div>
                                                                                         </div>
-                                                                            <?
+                                                                            <?php
                                                                                     }
                                                                                 }
                                                                             }   
                                                                             ?>
                                                                         </td>
                                                                     </tr>
-                                                                    <?
+                                                                    <?php
                                                                         }
                                                                     ?>
 
@@ -199,7 +199,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -223,7 +223,7 @@ $(document).ready(function() {
   });
 });
 </script>
-<?
+<?php
 }
 ?>
 <script>

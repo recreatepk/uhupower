@@ -1,4 +1,4 @@
-<?
+<?php
 // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -108,7 +108,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($complaints as $complaint) {
 															if ($complaint['status'] == 0) {
@@ -137,7 +137,7 @@
 																		</div>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -162,7 +162,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($complaints as $complaint) {
 															if ($complaint['status'] == 1) {
@@ -180,7 +180,7 @@
 																			Progress</a>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -205,7 +205,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($complaints as $complaint) {
 															if ($complaint['status'] == 2) {
@@ -223,7 +223,7 @@
 																			Complete</a>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -247,7 +247,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($complaints as $complaint) {
 															if ($complaint['status'] == 3) {
@@ -260,7 +260,7 @@
 																	<td>SR - <?= $complaint['complaint_ref'] ?></td>
 																	<td><?= $complaint['complaint_description'] ?></td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -284,7 +284,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($complaints as $complaint) {
 															if ($complaint['status'] == 4) {
@@ -301,7 +301,7 @@
 																		   class="btn btn-primary">Delete Complaint</a>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -331,7 +331,7 @@
 
 
 <?php $this->view('inc/footer.php'); ?>
-<?
+<?php
 if ($this->session->flashdata('del')) {
 	?>
 	<script>
@@ -355,7 +355,7 @@ if ($this->session->flashdata('del')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 if ($this->session->flashdata('status')) {
 	?>
@@ -380,7 +380,7 @@ if ($this->session->flashdata('status')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

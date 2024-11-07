@@ -151,24 +151,24 @@
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="employee_warehousing_id">
                                                                             <option value="0">None</option>
                                                                             <optgroup label="Warehouses">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($warehouses as $warehouse) {
                                                                                         if($warehouse['warehouse_location'] == 0){
                                                                                 ?>
                                                                                         <option value="<?=$warehouse['warehouse_id']?>"><?=$warehouse['warehouse_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
                                                                                 
                                                                             </optgroup>
                                                                             <optgroup label="Stores">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($stores as $store) {
                                                                                         if($store['store_location'] == 0){
                                                                                 ?>
                                                                                         <option value="<?=$store['store_id']?>"><?=$store['store_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                                         }
                                                                                     }
                                                                                 ?>
@@ -189,12 +189,12 @@
                                                                         <label>Employee User Group *</label>
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="user_group_id">
                                                                             <optgroup label="Working as">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($user_groups as $user_group) {
                                                                                     
                                                                                 ?>
                                                                                 <option value="<?=$user_group['user_group_id']?>"><?=$user_group['user_group_name']?></option>
-                                                                                <?
+                                                                                <?php
                                                                             }
                                                                                 ?>
                                                                             </optgroup>
@@ -206,12 +206,12 @@
                                                                         <label>Employee Department *</label>
                                                                         <select class="form-control custom-select" style="width: 100%; height:36px;" name="department_id">
                                                                             <optgroup label="Working in">
-                                                                                <?
+                                                                                <?php
                                                                                     foreach ($departments as $department) {
                                                                                     
                                                                                 ?>
                                                                                 <option value="<?=$department['department_id']?>"><?=$department['department_name']?> - <?=$department['department_description']?></option>
-                                                                                <?
+                                                                                <?php
                                                                             }
                                                                                 ?>
                                                                             </optgroup>
@@ -312,7 +312,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('add')){
 ?>
 <script>
@@ -336,7 +336,7 @@ if($this->session->flashdata('add')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

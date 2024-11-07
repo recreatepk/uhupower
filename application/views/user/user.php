@@ -73,7 +73,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($users as $user) {
 															if ($user['account_active'] == 1) {
@@ -89,7 +89,7 @@
 																	<td><?= $user['employee_designation'] ?></td>
 																	<td><?= $user['employee_salary'] ?></td>
 																	<td>
-																		<?
+																		<?php
 																		foreach ($user_groups as $user_group) {
 																			if ($user['user_group_id'] == $user_group['user_group_id']) {
 																				echo $user_group['user_group_name'];
@@ -105,24 +105,24 @@
 																				class="mdi mdi-arrow-down-bold"></i>
 																			Options <span class="caret"></span></button>
 																		<div class="dropdown-menu">
-																			<? if (in_array(5, $_SESSION['module_id'])) { ?>
+																			<?php if (in_array(5, $_SESSION['module_id'])) { ?>
 																				<a class="dropdown-item"
 																				   href="<?= base_url() ?>user/edit_user/<?= $user['employee_id'] ?>"><i
 																						class="mdi mdi-grease-pencil"></i>
 																					Edit User</a>
-																			<?
+																			<?php
 																			} ?>
-																			<? if (in_array(6, $_SESSION['module_id']) && $user['employee_id'] != 1) { ?>
+																			<?php if (in_array(6, $_SESSION['module_id']) && $user['employee_id'] != 1) { ?>
 																				<a class="dropdown-item"
 																				   href="<?= base_url() ?>user/delete_user/<?= $user['employee_id'] ?>"><i
 																						class="mdi mdi-delete"></i>
 																					Delete User</a>
-																			<?
+																			<?php
 																			} ?>
 																		</div>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -149,7 +149,7 @@
 														</tr>
 														</thead>
 														<tbody>
-														<?
+														<?php
 														$count = 1;
 														foreach ($users as $user) {
 															if ($user['account_active'] == 0) {
@@ -165,7 +165,7 @@
 																	<td><?= $user['employee_designation'] ?></td>
 																	<td><?= $user['employee_salary'] ?></td>
 																	<td>
-																		<?
+																		<?php
 																		foreach ($user_groups as $user_group) {
 																			if ($user['user_group_id'] == $user_group['user_group_id']) {
 																				echo $user_group['user_group_name'];
@@ -192,7 +192,7 @@
 																		</div>
 																	</td>
 																</tr>
-																<?
+																<?php
 																$count++;
 															}
 														}
@@ -222,7 +222,7 @@
 
 
 <?php $this->view('inc/footer.php'); ?>
-<?
+<?php
 if ($this->session->flashdata('del')) {
 	?>
 	<script>
@@ -246,7 +246,7 @@ if ($this->session->flashdata('del')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

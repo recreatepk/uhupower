@@ -19,7 +19,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 $warehouses = $CI->db->where('warehouse_location',0)->get('warehouse')->result_array();
 $stores = $CI->db->where('store_location',0)->get('store')->result_array();
 ?>
-<?
+<?php
     $att_count = 0;
     foreach ($today_attendances as $today_attendance) {
         if ($today_attendance['attendance_present'] == 1) {
@@ -63,7 +63,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                         <div class="card">
                                             <div class="card-body" style="justify-content: space-around;display: flex;">
                                                 <span style="font-size: 25px;font-family: monospace;">
-                                                    <?
+                                                    <?php
                                                         date_default_timezone_set('asia/karachi'); // Set your timezone here
 
                                                         $currentTime = date('H:i'); // Get the current time in 24-hour format
@@ -104,7 +104,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                         </div>
                                     </div>
                                 </div>
-                                <?
+                                <?php
                                 if (in_array(77, $_SESSION['module_id'])) {
                                     if (isset($news) || $news != '' || !empty($news)) {
                                 ?>
@@ -112,7 +112,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                     <div class="col-lg-6 text-center">
                                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner">
-                                                <?
+                                                <?php
                                                     $iteration = 0;
                                                     foreach ($news as $new) {
                                                         $activeClass = ($iteration === 0) ? 'active' : '';
@@ -125,7 +125,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                                                                     
                                                             </div>
                                                         </div>
-                                                <?
+                                                <?php
                                                         // Increment the iteration count
                                                         $iteration++;
                                                     }
@@ -142,7 +142,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                             </a>
                                         </div>
                                     </div><!--end col-->
-                                    <?
+                                    <?php
                                         if (isset($news[0]['news_description'])) {
                                     ?>
                                     <div class="col-lg-6  align-self-center">
@@ -153,11 +153,11 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                             
                                         </div>
                                     </div><!--end col-->
-                                    <?
+                                    <?php
                                         }
                                     ?>
                                 </div>
-                                <?
+                                <?php
                                 }
                                     }
                                 if (in_array(78, $_SESSION['module_id'])) {
@@ -170,7 +170,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                     <div class="row d-flex justify-content-center">
                                                         <div class="col">
                                                             <p class="text-dark mb-1 font-weight-semibold">Employee Present Today</p>
-                                                            <h3 class="my-2"><?=$att_count?></h3>
+                                                            <h3 class="my-2"><?= $att_count?></h3>
                                                             <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>98%</span> Attandence Today</p>
                                                         </div>
                                                         <div class="col-auto align-self-center">
@@ -186,7 +186,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                             <div class="card report-card">
                                                 <div class="card-body">
                                                     <div class="row d-flex justify-content-center">
-                                                        <?
+                                                        <?php
                                                             // Get the current month and last month purchase sums
                                                             $currentMonthSum = isset($purchase_sum[0]['SUM(purchase_order_product_cost)']) ? $purchase_sum[0]['SUM(purchase_order_product_cost)'] : 0;
                                                             $lastMonthSum = isset($purchase_sum_Lmonth[0]['SUM(purchase_order_product_cost)']) ? $purchase_sum_Lmonth[0]['SUM(purchase_order_product_cost)'] : 0;
@@ -281,7 +281,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                         </div> <!--end col-->                               
                                     </div><!--end row-->
                                 </div>
-                                <?
+                                <?php
                                 }
                                 if (in_array(79, $_SESSION['module_id'])) {
                                 ?>
@@ -311,7 +311,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                         </div><!--end card-->
                                     </div><!--end col-->
                                 </div>
-                                <?
+                                <?php
                                 }
                                 if (in_array(80, $_SESSION['module_id'])) {
                                 ?>
@@ -324,7 +324,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                         <h4 class="card-title">Present Today</h4>                      
                                                     </div><!--end col-->
                                                     <div class="col-auto"> 
-                                                        <?
+                                                        <?php
                                                             $count = 0;
                                                             foreach ($today_attendances as $today_attendance) {
                                                                 if ($today_attendance['attendance_present'] == 1 || $today_attendance['attendance_present'] == 3) {
@@ -338,7 +338,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                             </div><!--end card-header-->
                                             <div class="card-body">
                                                 <ul class="list-group custom-list-group">
-                                                    <?
+                                                    <?php
                                                         foreach ($employees as $employee) {
                                                             foreach ($today_attendances as $today_attendance) {
                                                                 if ($today_attendance['employee_id'] == $employee['employee_id']) {
@@ -363,7 +363,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                                                 </div>
                                                                             </div>                                            
                                                                         </li>
-                                                    <?
+                                                    <?php
                                                                     }
                                                                 }
                                                             }
@@ -383,7 +383,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                     </div><!--end col-->
                                                     <div class="col-auto"> 
                                                         <div class="dropdown">
-                                                            <?
+                                                            <?php
                                                             $count = 0;
                                                             foreach ($today_attendances as $today_attendance) {
                                                                 if ($today_attendance['attendance_present'] == 2 || $today_attendance['attendance_present'] == 4) {
@@ -398,7 +398,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                             </div><!--end card-header-->
                                             <div class="card-body">
                                                 <ul class="list-group custom-list-group">
-                                                   <?
+                                                   <?php
                                                         foreach ($employees as $employee) {
                                                             foreach ($today_attendances as $today_attendance) {
                                                                 if ($today_attendance['employee_id'] == $employee['employee_id']) {
@@ -423,7 +423,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                                                                 </div>
                                                                             </div>                                            
                                                                         </li>
-                                                    <?
+                                                    <?php
                                                                     }
                                                                 }
                                                             }
@@ -435,7 +435,7 @@ $stores = $CI->db->where('store_location',0)->get('store')->result_array();
                                         </div><!--end card--> 
                                     </div> <!--end col-->
                                 </div>
-                                <?
+                                <?php
                                 }
                                 ?>
                             </div><!--end page-title-box-->

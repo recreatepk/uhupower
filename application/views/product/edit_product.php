@@ -52,12 +52,12 @@
                                                                 <label>Product Category *</label>
                                                                 <select class="form-control custom-select" style="width: 100%; height:36px;" name="product_category_id">
                                                                     <optgroup label="Select Category">
-                                                                        <?
+                                                                        <?php
                                                                             foreach ($product_cats as $cat) {
                                                                             
                                                                         ?>
                                                                         <option value="<?=$cat['product_category_id']?>" <?=$retVal = ($product[0]['product_category_id'] == $cat['product_category_id']) ? 'selected' : '' ;?> ><?=$cat['product_category_name']?></option>
-                                                                        <?
+                                                                        <?php
                                                                     }
                                                                         ?>
                                                                     </optgroup>
@@ -99,7 +99,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('edit')){
 ?>
 <script>
@@ -123,7 +123,7 @@ if($this->session->flashdata('edit')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

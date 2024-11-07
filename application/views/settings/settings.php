@@ -273,7 +273,7 @@
 		}
 	}
 </script>
-<?
+<?php
 if ($this->session->flashdata('error')) {
 	?>
 	<script>
@@ -297,10 +297,10 @@ if ($this->session->flashdata('error')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
-<?
+<?php
 if ($this->session->flashdata('update')) {
 	?>
 	<script>
@@ -324,7 +324,7 @@ if ($this->session->flashdata('update')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 <script>

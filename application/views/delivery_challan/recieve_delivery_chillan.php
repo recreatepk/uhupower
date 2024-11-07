@@ -96,7 +96,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($dcs as $dc) {
                                                             ?>
@@ -106,23 +106,23 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             <td><?=$dc['purchase_dc_qty']?></td>
                                                                             <td><?=$dc['purchase_dc_qty_rcv']?></td>
                                                                             <td>
-                                                                                <?
+                                                                                <?php
                                                                                     if ($dc['purchase_dc_qty'] == $dc['purchase_dc_qty_rcv']) {
                                                                                 ?>
                                                                                          <span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Received</span>
-                                                                                <?
+                                                                                <?php
                                                                                     }else{
                                                                                 ?>
                                                                                     <button type="button" class="btn btn-primary no-print" data-toggle="modal" data-target="#bd-example-modal-xl" onclick="setReceivedQty(<?=$dc['purchase_dc_qty']?>,<?=$dc['purchase_dc_qty_rcv']?>,<?=$dc['purchase_dc_id']?>,<?=$dc['purchase_dc_product_id']?>)" data-loop-count="<?=$dc['purchase_dc_qty']?>">Click Here to Receive</button>
 
-                                                                                <?
+                                                                                <?php
                                                                                     }
                                                                                 ?>
                                                                                
                                                                               
                                                                             </td>
                                                                         </tr>
-                                                            <?
+                                                            <?php
                                                                         $count++;
                                                                 }
                                                             ?>

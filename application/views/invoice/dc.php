@@ -89,7 +89,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                 <abbr title="Phone">P:</abbr> <?=$dcs[0]['sup_cus_phone1']?>
                                                             </address>
                                                         </div>
-                                                        <?
+                                                        <?php
                                                             if ($dcs[0]['status'] == 1) {
                                                         ?>
                                                         <form action="<?=base_url()?>Quotation/change_delivery_address_dc/<?=$dcs[0]['sell_dc_id']?>" method="POST">
@@ -109,7 +109,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                 <button style="margin-bottom: 5px;" type="submit" class="btn btn-primary px-4 text-right">Update Delivery Information</button>
                                                             </div>
                                                         </form>
-                                                        <?
+                                                        <?php
                                                             }
                                                             else{
                                                         ?>
@@ -122,14 +122,14 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                         <abbr title="Phone">P:</abbr> <?=$dcs[0]['number']?>
                                                                     </address>
                                                                 </div>
-                                                        <?
+                                                        <?php
                                                             }
                                                         ?>
                                                     </div><!--end col--> 
                                                     <div class="col-md-2 no-print">                                            
                                                         <div class="float-left">
                                                             <strong class="font-14">Status :</strong><br>
-                                                            <?
+                                                            <?php
                                                                 if ($dcs[0]['status'] == 1) {
                                                                     echo "<span class='badge badge-pill badge-info'><i class='fas fa-ban'></i> Not Delivered</span>";
                                                                 }
@@ -165,7 +165,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                         <tr>
                                                                             <td><?=$count?></td>
                                                                             <td style="display: flex;flex-direction: column;"><?=$dc['product_name']?> 
-                                                                            <?
+                                                                            <?php
                                                                                 foreach ($unique_identifiers as $unique_identifier) {
                                                                                     ?>
                                                                                     <span style="font-size: 12px;font-weight: 700;background: #ffff0042;">
@@ -182,18 +182,18 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                             </td>
                                                                             <td><?=$dc['invoice_qty']?></td>
                                                                             <td class="no-print">
-                                                                            <?
+                                                                            <?php
                                                                                 if ($dc['receiving'] == 1) {
                                                                                     echo "<span class='badge badge-pill badge-success'><i class='fas fa-check'></i> Delivered</span>";
                                                                                 }else{
                                                                             ?>
                                                                                     <a class="btn btn-primary" href="<?=base_url()?>Quotation/deliver_items/<?=$dc['sell_dc_product_id']?>/<?=$dc['sell_dc_id']?>">Deliver Items</a>
-                                                                            <?
+                                                                            <?php
                                                                                 }
                                                                             ?>
                                                                             </td>
                                                                         </tr>
-                                                                    <?
+                                                                    <?php
                                                                         $count++;
                                                                         }
                                                                     ?>
@@ -247,7 +247,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('status')){
 ?>
 <script>
@@ -271,11 +271,11 @@ if($this->session->flashdata('status')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 if($this->session->flashdata('qty_error')){
 ?>
 <script>
@@ -299,10 +299,10 @@ if($this->session->flashdata('qty_error')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('d_address')){
 ?>
 <script>
@@ -326,7 +326,7 @@ if($this->session->flashdata('d_address')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 

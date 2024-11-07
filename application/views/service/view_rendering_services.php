@@ -70,14 +70,14 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <?
+                                                <?php
                                                     $count = 1;
                                                     foreach ($main_services as $main_service) {
                                                 ?>
                                                 <tr>
                                                     <td><?=$count?></td>
                                                     <td>
-                                                        <?
+                                                        <?php
                                                             foreach ($customers as $customer) {
                                                                 if ($customer['sup_cus_id'] == $main_service['sup_cus_id']) {
                                                                     echo $customer['sup_cus_company'].' ('.$customer['sup_cus_company'].')';
@@ -109,7 +109,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <?
+                                                                                <?php
                                                                                     $num = 1;
                                                                                     $totalCostAfterTax = 0;
                                                                                     foreach ($rendered_services as $rendered_service) {
@@ -122,7 +122,7 @@
                                                                                             <td><?=$rendered_service['service_cost']?></td>
                                                                                             <td><?=$rendered_service['service_tax']?></td>
                                                                                             <td>
-                                                                                                <?
+                                                                                                <?php
 
                                                                                                     if ($rendered_service['service_tax'] == 0) {
                                                                                                         $taxPercentage = 1;
@@ -137,7 +137,7 @@
                                                                                                 ?>
                                                                                             </td>
                                                                                         </tr>
-                                                                                <?
+                                                                                <?php
                                                                                             $num++;
                                                                                         }
                                                                                     }
@@ -165,7 +165,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <?
+                                                                                <?php
                                                                                     $num = 1;
                                                                                     $tpcostAfterTax = 0;
                                                                                     foreach ($rendered_services_products as $rendered_services_product) {
@@ -179,7 +179,7 @@
                                                                                             <td><?=$rendered_services_product['product_cost']?></td>
                                                                                             <td><?=$rendered_services_product['product_tax']?></td>
                                                                                             <td>
-                                                                                                <?
+                                                                                                <?php
 
                                                                                                     if ($rendered_services_product['product_tax'] == 0) {
                                                                                                         $ptaxPercentage = 1;
@@ -195,7 +195,7 @@
                                                                                                 ?>
                                                                                             </td>
                                                                                         </tr>
-                                                                                <?
+                                                                                <?php
                                                                                             $num++;
                                                                                         }
                                                                                     }
@@ -221,7 +221,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <?
+                                                        <?php
                                                             foreach ($service_assignments as $service_assignment) {
                                                                 foreach ($employees as $employee) {
                                                                     if ($service_assignment['render_service_id'] == $main_service['render_service_id']) {
@@ -234,7 +234,7 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?
+                                                        <?php
                                                             if ($main_service['status'] == 1) {
                                                                 echo "<span class='badge badge-pill badge-light'>Draft</span>";
                                                             }
@@ -252,37 +252,37 @@
                                                     <td>
                                                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                         <div class="dropdown-menu">
-                                                            <? if ($main_service['status'] == 2 || $main_service['status'] == 3 || $main_service['status'] == 4){ ?>
+                                                            <?php if ($main_service['status'] == 2 || $main_service['status'] == 3 || $main_service['status'] == 4){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/print_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-printer"></i> Print Service Invoice</a>
-                                                            <?}?>
-                                                            <? if (in_array(73, $_SESSION['module_id']) && $main_service['status'] == 1 || $main_service['status'] == 2){ ?>
+                                                            <?php }?>
+                                                            <?php if (in_array(73, $_SESSION['module_id']) && $main_service['status'] == 1 || $main_service['status'] == 2){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/assign_personel/<?=$main_service['render_service_id']?>"><i class="mdi mdi-account-multiple-outline"></i> Assign to Workers</a>
-                                                            <?}?>
-                                                            <? if ($main_service['status'] == 1){ ?>
+                                                            <?php }?>
+                                                            <?php if ($main_service['status'] == 1){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/change_status/<?=$main_service['render_service_id']?>/<?=$main_service['status']?>"><i class="mdi mdi-redo"></i> Change Status</a>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/print_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-printer"></i> Print Service Invoice</a>
                                                             <?}else{
                                                                 if (in_array(74, $_SESSION['module_id']) && $main_service['status'] == 2 || $main_service['status'] == 3) {
                                                             ?>
                                                                     <a class="dropdown-item" href="<?=base_url()?>Service/change_status/<?=$main_service['render_service_id']?>/<?=$main_service['status']?>"><i class="mdi mdi-check"></i> Change Status</a>
-                                                            <?
+                                                            <?php
                                                                 }
                                                             }?>
-                                                            <? if (in_array(70, $_SESSION['module_id']) && $main_service['status'] == 1){ ?>
+                                                            <?php if (in_array(70, $_SESSION['module_id']) && $main_service['status'] == 1){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/edit_render_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Service</a>
                                                             <?}elseif(in_array(74, $_SESSION['module_id']) && $main_service['status'] == 2){
                                                             ?>
                                                                 <a class="dropdown-item" href="<?=base_url()?>Service/edit_render_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Service</a>
-                                                            <?
+                                                            <?php
                                                                 }
                                                             ?>
-                                                            <? if (in_array(72, $_SESSION['module_id']) && $main_service['status'] == 1 || $main_service['status'] == 2){ ?>
+                                                            <?php if (in_array(72, $_SESSION['module_id']) && $main_service['status'] == 1 || $main_service['status'] == 2){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/delete_render_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-delete"></i> Delete Service</a>
-                                                            <?}?>
+                                                            <?php }?>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?
+                                                <?php
                                                     $count++;
                                                     }
                                                 ?>
@@ -306,7 +306,7 @@
         
 
 <?php $this->view('inc/footer.php');?>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -330,10 +330,10 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('assign')){
 ?>
 <script>
@@ -357,10 +357,10 @@ if($this->session->flashdata('assign')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('dc')){
 ?>
 <script>
@@ -384,10 +384,10 @@ if($this->session->flashdata('dc')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('status')){
 ?>
 <script>
@@ -411,10 +411,10 @@ if($this->session->flashdata('status')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('completed')){
 ?>
 <script>
@@ -438,10 +438,10 @@ if($this->session->flashdata('completed')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
-<?
+<?php
 if($this->session->flashdata('invoice')){
 ?>
 <script>
@@ -465,7 +465,7 @@ if($this->session->flashdata('invoice')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 <script>

@@ -139,7 +139,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 <script src="<?= base_url() ?>assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <script src="<?= base_url() ?>assets/pages/jquery.sweet-alert.init.js"></script>
 
-<?
+<?php
 if ($this->session->flashdata('error')) {
 	?>
 	<script>
@@ -163,7 +163,7 @@ if ($this->session->flashdata('error')) {
 			});
 		});
 	</script>
-	<?
+	<?php
 }
 ?>
 </body>

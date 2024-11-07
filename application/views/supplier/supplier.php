@@ -1,4 +1,4 @@
-<?
+<?php
     // print_r($_SESSION['module_id']);die;
 ?>
 <!DOCTYPE html>
@@ -60,7 +60,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?
+                                                            <?php
                                                                 $count = 1;
                                                                 foreach ($suppliers as $supplier) {
                                                             ?>
@@ -72,7 +72,7 @@
                                                                 <td><?=$supplier['sup_cus_email']?></td>
                                                                 <td><?=$supplier['sup_cus_address']?></td>
                                                                 <td>
-                                                                <?
+                                                                <?php
                                                                     if ($supplier['sup_cus_billing_cycle'] == 1) {
                                                                         echo "1 Day";
                                                                     }
@@ -93,16 +93,16 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-arrow-down-bold"></i> Options <span class="caret"></span> </button>
                                                                     <div class="dropdown-menu">
-                                                                        <? if (in_array(20, $_SESSION['module_id'])){ ?>
+                                                                        <?php if (in_array(20, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Supplier/edit_supplier/<?=$supplier['sup_cus_id']?>/<?=$type?>"><i class="mdi mdi-grease-pencil"></i> Edit <?=$retVal = ($type == 1) ? 'Supplier' : 'Customers' ;?></a>
-                                                                        <?}?>
-                                                                        <? if (in_array(22, $_SESSION['module_id'])){ ?>
+                                                                        <?php }?>
+                                                                        <?php if (in_array(22, $_SESSION['module_id'])){ ?>
                                                                         <a class="dropdown-item" href="<?=base_url()?>Supplier/delete_supplier/<?=$supplier['sup_cus_id']?>/<?=$type?>"><i class="mdi mdi-delete"></i> Delete <?=$retVal = ($type == 1) ? 'Supplier' : 'Customers' ;?></a>
-                                                                        <?}?>
+                                                                        <?php }?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <?
+                                                            <?php
                                                                 $count++;
                                                                 }
                                                             ?>
@@ -149,7 +149,7 @@
 <script type="text/javascript">
      $('#table').DataTable();
 </script>
-<?
+<?php
 if($this->session->flashdata('del')){
 ?>
 <script>
@@ -173,7 +173,7 @@ if($this->session->flashdata('del')){
       });
     });
 </script>
-<?
+<?php
 }
 ?>
 
