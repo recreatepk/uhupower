@@ -246,7 +246,7 @@
 																<div class="col-sm-12">
 
 																	<div class="form-group row">
-																		<div class="col-sm-6">
+																		<div class="col-sm-3">
 																			<label>Select Services needs to be Rendered *</label>
 																			<select class="form-control custom-select" style="width: 100%; height:36px;" name="service_id" required>
 																				<?php
@@ -260,6 +260,13 @@
 																			</select>
 																		</div>
 
+
+																		<div class="col-sm-3">
+																			<div class="form-group">
+																				<label>Qty *</label>
+																				<input type="number" class="form-control" name="qty" required>
+																			</div>
+																		</div>
 
 																		<div class="col-sm-3">
 																			<div class="form-group">

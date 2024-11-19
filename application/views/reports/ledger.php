@@ -45,7 +45,7 @@
                                                 <div class="form-group">
                                                     <label>Select <?=$retVal = ($check == 1) ? 'Supplier' : 'Customer' ;?>*</label>
                                                     <select class="form-control custom-select" style="width: 100%; height:36px;" name="supplier_id">
-                                                        <? 
+                                                        <?php
                                                         if($check == 1){
                                                         ?>
                                                         <optgroup label="Select Customer">

@@ -252,7 +252,7 @@
 																			<div class="col-sm-12">
 
 																				<div class="form-group row">
-																					<div class="col-sm-6">
+																					<div class="col-sm-3">
 																						<label>Select Services needs to be
 																							Rendered *</label>
 																						<select
@@ -273,6 +273,16 @@
 																					</div>
 
 
+																					<div class="col-sm-3">
+																						<div class="form-group">
+																							<label>Quantity *</label>
+																							<input type="text"
+																								   class="form-control"
+																								   name="qty"
+																								   value="<?= $service_quote['qty'] ?>"
+																								   required="">
+																						</div>
+																					</div>
 																					<div class="col-sm-3">
 																						<div class="form-group">
 																							<label>Cost *</label>

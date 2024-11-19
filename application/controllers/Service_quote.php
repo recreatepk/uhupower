@@ -193,6 +193,7 @@ class Service_quote extends CI_Controller
 			$service_quote_service['qty'] = $service['qty'];
 			$service_quote_service['cost'] = $service['cost'];
 			$service_quote_service['tax'] = $service['tax'];
+
 			$this->SQM->Update_service_quote_service($service_quote_service, $service_quote_id);
 		}
 

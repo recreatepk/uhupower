@@ -44,7 +44,10 @@ class Quotation extends CI_Controller
 		foreach ($data['qoutations'] as $quotes) {
 			$quotes_ids[] = $quotes['quotation_id'];
 		}
+		
+		
 		$data['quotes_service'] = $this->QSM->Get_quotation_service($quotes_ids);
+
 		$this->load->view('qoutation/qoutations', $data);
 	}
 
@@ -92,6 +95,7 @@ class Quotation extends CI_Controller
 		$quote_service['quotation_id'] = $quote_detail['quotation_id'];
 		foreach ($data['service'] as $service) {
 			$quote_service['render_service_id'] = $service['service_id'];
+			$quote_service['qty'] = $service['qty'];
 			$quote_service['cost'] = $service['service_cost'];
 			$quote_service['tax'] = $service['service_tax'];
 			$this->QSM->Insert_quotation_service($quote_service);
@@ -305,6 +309,7 @@ class Quotation extends CI_Controller
 		$quote_service['quotation_id'] = $quotation_id;
 		foreach ($data['service'] as $service) {
 			$quote_service['render_service_id'] = $service['render_service_id'];
+			$quote_service['qty'] = $service['qty'];
 			$quote_service['cost'] = $service['cost'];
 			$quote_service['tax'] = $service['tax'];
 			$this->QSM->Update_quotation_service($quote_service, $quotation_id);

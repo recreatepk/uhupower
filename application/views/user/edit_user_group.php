@@ -40,14 +40,28 @@
                                             <div class="card-body">
                                                 <form action="<?=base_url()?>user/editing_user_group/<?=$user_group[0]['user_group_id']?>" method="POST">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-10">
                                                             <div class="form-group">
                                                                 <label for="username">Name</label>
                                                                 <input type="text" class="form-control" name="user_group_name" value="<?=$user_group[0]['user_group_name']?>" id="username" required="">
                                                             </div>
                                                         </div>
-                                                            
-                                                        
+
+                                                        <div class="checkbox my-2 mt-5">
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" id="show-to-rendering" <?php
+																 if($user_group[0]['is_show_rendering'] == 1)
+																 {
+																 	echo "checked";
+																 }
+																 else{
+																 	echo "";
+																 }
+																 ?>  name="is_show_rendering" value="1">
+																<label class="custom-control-label" for="show-to-rendering">Show To Rendering?</label>
+															</div>
+														</div>
+
                                                             
                                                     </div>
                                                     <div class="row">
@@ -63,7 +77,7 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <? foreach ($main_modules as $module) { ?>
+                                                                    <?php foreach ($main_modules as $module) { ?>
                                                                     <tr>
                                                                         <td>
                                                                         <?php
@@ -77,7 +91,7 @@
                                                                                     if (substr($permission['module_name'],0,1) == 'A') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
+                                                                                                <input type="checkbox" class="custom-control-input checkboxes" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -100,7 +114,7 @@
                                                                                     if (substr($permission['module_name'],0,1) == 'V') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
+                                                                                                <input type="checkbox" class="custom-control-input checkboxes" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -123,7 +137,7 @@
                                                                                     if (substr($permission['module_name'],0,1) == 'E' || substr($permission['module_name'],0,1) == 'R') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
+                                                                                                <input type="checkbox" class="custom-control-input checkboxes" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -146,7 +160,7 @@
                                                                                     if (substr($permission['module_name'],0,1) == 'D') { ?>
                                                                                          <div class="checkbox my-2">
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input type="checkbox" class="custom-control-input" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
+                                                                                                <input type="checkbox" class="custom-control-input checkboxes" id="customCheck<?=$permission['module_id']?>" data-parsley-multiple="groups" data-parsley-mincheck="2" name="permission[]" value="<?=$permission['module_id']?>" <?php
                                                                                                 foreach ($permissions_given as $permission2) {
                                                                                                     if ($permission2['module_id'] == $permission['module_id']) {
                                                                                                         echo "checked";
@@ -173,7 +187,15 @@
                                                     </div>
                                                 
                                                     <div class="row">
-                                                        <div class="col-sm-12 text-right">
+														<div class="col-sm-10">
+															<div class="checkbox my-2 text-right">
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input  checkboxes" id="selectAll" data-parsley-multiple="groups" data-parsley-mincheck="2" name="select_all" value="1">
+																<label class="custom-control-label" for="selectAll">Select/Reset All</label>
+															</div>
+														</div>
+												    </div>
+												<div class="col-sm-2 text-right">
                                                             <button type="submit" class="btn btn-primary px-4">Edit Group</button>
                                                         </div>
                                                     </div>
@@ -230,7 +252,19 @@ $(document).ready(function() {
   // Get the current page or section identifier (you can customize this part)
   var currentPage = "Settings"; // Example: If you're on 1, set it to "1"
 
-  
+    jQuery(document).on('click', '#selectAll', function(){
+    		if(jQuery(this).is(':checked')){
+    			jQuery('.checkboxes').each(function(){
+    			console.log('1')
+    				jQuery(this).prop('checked',true)
+    			})
+    		}else{
+    			jQuery('.checkboxes').each(function(){
+    			console.log('2')
+              	jQuery(this).prop('checked',false)
+              })
+    		}
+    })
 </script>
     </body>
 

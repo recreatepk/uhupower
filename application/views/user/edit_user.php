@@ -299,6 +299,29 @@
                                                                     ?>
 
                                                                 </div>
+
+																<span class="mt-5"></span>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label>Allowed Leaves</label>
+                                                                        <input type="number" class="form-control" value="<?=$users[0]['allowed_leaves']?>" name="allowed_leaves">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Bank Name</label>
+                                                                        <input type="text" class="form-control" value="<?=$users[0]['bank_name']?>" name="bank_name">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label>Bank Account</label>
+                                                                        <input type="text" class="form-control" value="<?=$users[0]['bank_account_number']?>" name="bank_account_number">
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="col-md-12">
                                                                     <h4 class="card-title">Resgination (<code>Fill this when Employee is Leaving</code>)</h4>  
                                                                     <hr>

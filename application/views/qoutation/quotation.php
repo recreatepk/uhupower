@@ -323,6 +323,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														<tr>
 															<th>#</th>
 															<th>Items</th>
+															<th>Qty</th>
 															<th>Cost</th>
 															<th>Tax</th>
 															<th>Total</th>
@@ -333,7 +334,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														$count = 1;
 														$taxed_amount = 0;
 														$tax_inclusive = 0;
-														$sub_total = 0;
+														$sub_total_service = 0;
 														foreach ($rendered_services as $rendered_service) {
 															?>
 															<tr>
@@ -343,15 +344,16 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	<span
 																		class="text-muted"><?= $rendered_service['service_description'] ?></span>
 																</td>
+																<td><?=$rendered_service['qty']?></td>
 																<td><?=$rendered_service['cost']?></td>
 																<td><?=$rendered_service['tax']?></td>
 																<td>
 																	<?php
-																	$taxed_amount = ($rendered_service['cost']) * ($rendered_service['tax'] / 100);
-																	$tax_inclusive = $taxed_amount + $rendered_service['cost'];
+																	$taxed_amount = ($rendered_service['cost'] * $rendered_service['qty']) * ($rendered_service['tax'] / 100);
+																	$tax_inclusive = $taxed_amount + ($rendered_service['cost'] * $rendered_service['qty']);
 																	echo $tax_inclusive;
 
-																	$sub_total += $tax_inclusive;
+																	$sub_total_service += $tax_inclusive;
 																	?>
 																</td>
 															</tr>
@@ -364,7 +366,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														<tr class="">
 															<th colspan="3" class="border-0"></th>
 															<td class="border-0 font-14"><b>Sub Total</b></td>
-															<td><?= $sub_total ?></td>
+															<td><?= $sub_total_service ?></td>
 														</tr><!--end tr-->
 														</tbody>
 													</table><!--end table-->
@@ -405,7 +407,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														$count = 1;
 														$taxed_amount = 0;
 														$tax_inclusive = 0;
-														$sub_total = 0;
+														$sub_total_product = 0;
 														foreach ($products as $product) {
 
 															?>
@@ -434,7 +436,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																	$tax_inclusive = ($taxed_amount * $product['quotation_qty']) + ($product['quotation_cost'] * $product['quotation_qty']);
 																	echo $tax_inclusive;
 
-																	$sub_total += $tax_inclusive;
+																	$sub_total_product += $tax_inclusive;
 																	?>
 																</td>
 															</tr>
@@ -447,7 +449,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 														<tr class="">
 															<th colspan="4" class="border-0"></th>
 															<td class="border-0 font-14"><b>Sub Total</b></td>
-															<td><?= $sub_total ?></td>
+															<td><?= $sub_total_product ?></td>
 														</tr><!--end tr-->
 														</tbody>
 													</table><!--end table-->
@@ -479,6 +481,26 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 												}
 												?>
 											</div><!--end col-->
+											<div class="col-sm-12 mt-3">
+                                            												<h3 class="text-center" style="background-color: <?php
+                                            												if ($quotation_details[0]['compnay_name'] == 1) {
+                                            													echo '#b7042c';
+                                            												}
+                                            												if ($quotation_details[0]['compnay_name'] == 2) {
+                                            													echo '#2a2662';
+                                            												}
+                                            												if ($quotation_details[0]['compnay_name'] == 3) {
+                                            													echo '#5a3524';
+                                            												}
+                                            												?>; color: white;">Grand Total</h3>
+                                            											</div>
+																						<table class="table table-bordered mb-0">
+																					<tr class="">
+																						<th colspan="4" class="border-0"></th>
+																						<td class="border-0 font-14"><b>Grand Total</b></td>
+																						<td><?= $sub_total_product + $sub_total_service ?></td>
+																					</tr><!--end tr-->
+																					</table>
 											<div class="col-sm-12 mt-3">
 												<h3 class="text-center" style="background-color: <?php
 												if ($quotation_details[0]['compnay_name'] == 1) {

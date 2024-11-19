@@ -186,6 +186,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     <tr>
                                                                         <th>#</th>
                                                                         <th>Service Name</th>
+                                                                        <th>Qty</th>
                                                                         <th>Cost</th>
                                                                         <th>Tax</th>
                                                                         <th>Total</th>
@@ -207,13 +208,13 @@ if (!($office_data = $CI->cache->get($cache_key))) {
 																		<td><?= $count ?></td>
 																		<td title="<?= $rendered_service['service_description'] ?>"><?= $rendered_service['service_name'] ?>
 																			<br><?= $rendered_service['service_description'] ?></td>
-																		<td><?= $rendered_service['qty'] ?> %</td>
+																		<td><?= $rendered_service['qty'] ?></td>
 																		<td><?= $rendered_service['cost'] ?></td>
 																		<td><?= $rendered_service['tax'] ?></td>
 																		<td>
 																			<?php
-																			$taxed_amount = ($rendered_service['cost']) * ($rendered_service['tax'] / 100);
-																			$tax_inclusive = $taxed_amount + $rendered_service['cost'];
+																			$taxed_amount = ($rendered_service['cost'] * $rendered_service['qty']) * ($rendered_service['tax'] / 100);
+																			$tax_inclusive = $taxed_amount +( $rendered_service['cost'] * $rendered_service['qty']);
 																			echo $tax_inclusive;
 
 																			$sub_total += $tax_inclusive;
@@ -346,7 +347,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                         <div class="float-right d-print-none">
                                                             <button onclick="printContent('printme');" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
                                                         </div>
-                                                        <?  
+                                                        <?php
                                                             }
                                                         ?>
                                                     </div><!--end col-->

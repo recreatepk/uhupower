@@ -261,7 +261,7 @@
                                                             <?php if ($main_service['status'] == 1){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/change_status/<?=$main_service['render_service_id']?>/<?=$main_service['status']?>"><i class="mdi mdi-redo"></i> Change Status</a>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/print_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-printer"></i> Print Service Invoice</a>
-                                                            <?}else{
+                                                            <?php }else{
                                                                 if (in_array(74, $_SESSION['module_id']) && $main_service['status'] == 2 || $main_service['status'] == 3) {
                                                             ?>
                                                                     <a class="dropdown-item" href="<?=base_url()?>Service/change_status/<?=$main_service['render_service_id']?>/<?=$main_service['status']?>"><i class="mdi mdi-check"></i> Change Status</a>
@@ -270,7 +270,7 @@
                                                             }?>
                                                             <?php if (in_array(70, $_SESSION['module_id']) && $main_service['status'] == 1){ ?>
                                                             <a class="dropdown-item" href="<?=base_url()?>Service/edit_render_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Service</a>
-                                                            <?}elseif(in_array(74, $_SESSION['module_id']) && $main_service['status'] == 2){
+                                                            <?php }elseif(in_array(74, $_SESSION['module_id']) && $main_service['status'] == 2){
                                                             ?>
                                                                 <a class="dropdown-item" href="<?=base_url()?>Service/edit_render_service/<?=$main_service['render_service_id']?>"><i class="mdi mdi-grease-pencil"></i> Edit Service</a>
                                                             <?php

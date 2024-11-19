@@ -134,6 +134,16 @@
 																					class="mdi mdi-delete"></i>
 																				Cancel Complaint
 																			</a>
+																			<a class="dropdown-item"
+																			   href="<?= base_url() ?>Service_quote/add_service_quote/?sup_cust_id=<?= $complaint['sup_cus_id'] ?>&complaint_id=<?= $complaint['complaint_id'] ?>"><i
+																					class="mdi mdi-delete"></i>
+																				Service Quotation
+																			</a>
+																			<a class="dropdown-item"
+																			   href="<?= base_url() ?>Service/render_service/?sup_cust_id=<?= $complaint['sup_cus_id'] ?>&complaint_id=<?= $complaint['complaint_id'] ?>"><i
+																					class="mdi mdi-delete"></i>
+																				Service Render
+																			</a>
 																		</div>
 																	</td>
 																</tr>

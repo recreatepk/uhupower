@@ -67,8 +67,17 @@ class Salary extends CI_Controller {
 		$data['salary'] 		= $this->input->post('salary');
 		$data['salary_date'] 	= $this->input->post('salary_date');
 		$data['salary_id'] 		= $this->input->post('salary_id');
-		// print_r($data['salary_date']);die;
+		$data['fuelprice_total'] 		= $this->input->post('fuelprice_total');
+		$data['loan'] 		= $this->input->post('loan');
+		$data['advance'] 		= $this->input->post('advance');
+		$data['insurance'] 		= $this->input->post('insurance');
+		$data['bonus'] 		= $this->input->post('bonus');
+		$data['commision'] 	= $this->input->post('commision');
+		$data['allowances'] 		= $this->input->post('allowances');
 
+		// echo "<pre/>";
+		// var_dump($data);
+		// die();
 		if ($data['salary_id'] != '' && !empty($data['salary_id'])) {
 			foreach ($data['salary_id'] as $salary_id) {
 				$this->SM->Delete_salary($salary_id);
@@ -85,6 +94,13 @@ class Salary extends CI_Controller {
                 'salary_fuelprice' => $data['fuelprice'][$i],
                 'salary_milage' => $data['milage'][$i],
                 'salary_salary' => $data['salary'][$i],
+                'salary_advance' => $data['advance'][$i],
+                'salary_fuelprice_total' => $data['fuelprice_total'][$i],
+                'salary_loan' => $data['loan'][$i],
+                'salary_insurance' => $data['insurance'][$i],
+                'salary_bonus' => $data['bonus'][$i],
+                'salary_commision' => $data['commision'][$i],
+                'salary_allowances' => $data['allowances'][$i],
                 'salary_date' => $data_arrays[$i]
             );
         }

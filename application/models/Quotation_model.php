@@ -36,9 +36,10 @@ class Quotation_model extends CI_Model
 
 	public function Get_quotations_w_supplier_date($start_date, $end_date)
 	{
-		return $this->db->select('quotation.*, sup_cus.sup_cus_company,sup_cus.sup_cus_name,sup_cus.sup_cus_address,sup_cus.sup_cus_phone1')
+		return $this->db->select('quotation.*, sup_cus.sup_cus_company,sup_cus.sup_cus_name,sup_cus.sup_cus_address,sup_cus.sup_cus_phone1, quote_detail.subject')
 			->from('quotation')
 			->join('sup_cus', 'sup_cus.sup_cus_id = quotation.quotation_supplier_id')
+			->join('quote_detail', 'quote_detail.quote_detail_id = quotation.quotation_id')
 			->where('quotation_order_date >=', $start_date)
 			->where('quotation_order_date <=', $end_date)
 			->get()

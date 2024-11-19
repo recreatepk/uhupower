@@ -203,11 +203,14 @@ class Service_model extends CI_Model {
 	}
 
 	public function Get_all_workers(){
-		return $this->db->select('employee_id,employee_code,employee_name,employee_phone1,employee_designation')
+		return $this->db->select('employee.employee_id,employee.employee_code,employee.employee_name,employee.employee_phone1,user_group.user_group_name as employee_designation')
 						->from('employee')
-						->where('user_group_id','2')
-						->where('resignation_type',0)
-						->order_by('employee_id','DESC')
+						->join('user_group','user_group.user_group_id = employee.user_group_id')
+
+// 						->where('user_group_id','2')
+						->where('employee.resignation_type',0)
+						->where('user_group.is_show_rendering',1)
+						->order_by('employee.employee_id','DESC')
 						->get()
 						->result_array();
 	}

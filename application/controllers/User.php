@@ -27,12 +27,14 @@ class User extends CI_Controller
 		$data = $this->UM->check_login($email, $password);
 
 		if ($data != '' && !empty($data)) {
-			$sess_data = array('id' => $data[0]['employee_id'],
+			$sess_data = array(
+				'id' => $data[0]['employee_id'],
 				'username' => $data[0]['employee_name'],
 				'department_id' => $data[0]['department_id'],
 				'employee_warehousing_access' => $data[0]['employee_warehousing_access'],
 				'employee_warehousing_id' => $data[0]['employee_warehousing_id'],
-				'employee_company_id' => $data[0]['employee_company_id']);
+				'employee_company_id' => $data[0]['employee_company_id']
+			);
 			$this->session->set_userdata($sess_data);
 			$this->get_permission($data[0]['employee_id']);
 			$this->session->set_flashdata('good', 'good');
@@ -342,14 +344,15 @@ class User extends CI_Controller
 	{
 		$name = $this->input->post('user_group_name');
 		$module = $this->input->post('permission');
+		$is_show_rendering = $this->input->post('is_show_rendering');
 		$group['user_group_name'] = $name;
+		$group['is_show_rendering'] = (int)isset($is_show_rendering);
 		$user_group_id = $this->UM->Insert_user_group($group);
 		foreach ($module as $mod) {
 			$this->UM->Insert_permission($user_group_id, $mod);
 		}
 		$this->session->set_flashdata('add', 'add');
 		redirect('user/add_user_group');
-
 	}
 
 	public function delete_user_group($user_group_id)
@@ -371,14 +374,17 @@ class User extends CI_Controller
 		$data['permissions_given'] = $this->UM->Get_permission($user_group_id);
 		// print_r($data);die;
 		$this->load->view('user/edit_user_group', $data);
-
 	}
 
 	public function editing_user_group($user_group_id)
 	{
 		$name = $this->input->post('user_group_name');
 		$module = $this->input->post('permission');
+		$is_show_rendering = $this->input->post('is_show_rendering');
 		$group['user_group_name'] = $name;
+
+		$group['is_show_rendering'] = (int)isset($is_show_rendering);
+
 		$this->UM->update_user_group($group, $user_group_id);
 		$this->UM->Delete_permission($user_group_id);
 		foreach ($module as $mod) {
@@ -405,5 +411,26 @@ class User extends CI_Controller
 		$this->session->set_flashdata('edit', 'edit');
 
 		redirect("User/profile/$user_id");
+	}
+
+	public function duplicate_group($old_group_id)
+	{
+		$name = $this->input->post('group_name');
+		$module = $this->db->select('module_id')
+			->from('permission')
+			->where('user_group_id', $old_group_id)
+			->get()
+			->result_array();
+
+
+		$group['user_group_name'] = $name;
+		$this->db->insert('user_group', $group);
+		
+		$user_group_id = $this->db->insert_id();
+		foreach ($module as $mod) {
+			$this->UM->Insert_permission($user_group_id, $mod['module_id']);
+		}
+		$this->session->set_flashdata('add', 'add');
+		redirect("user/user_group");
 	}
 }

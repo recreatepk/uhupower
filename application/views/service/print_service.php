@@ -182,7 +182,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     </tr><!--end tr-->
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?  
+                                                                    <?php
                                                                         $count = 1;
                                                                         $taxed_amount = 0;
                                                                         $tax_inclusive = 0;
@@ -325,7 +325,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                         <div class="float-right d-print-none">
                                                             <button onclick="printContent('printme');" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
                                                         </div>
-                                                        <?  
+                                                        <?php
                                                             }
                                                         ?>
                                                     </div><!--end col-->

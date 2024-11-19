@@ -157,7 +157,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     </tr><!--end tr-->
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?  
+                                                                    <?php
                                                                         $count = 1;
                                                                         foreach ($dcs as $dc) {
 

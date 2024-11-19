@@ -70,6 +70,7 @@
                                                             <th>#</th>
                                                             <th>Quotation</th>
                                                             <th>Customer</th>
+                                                            <th>Subject</th>
 															<!--<th>Service Information</th>-->
                                                             <th>Status</th>
                                                             <th>Options</th>
@@ -170,7 +171,7 @@
 																		</div>
 																	</div>
 																</td>-->
-
+																<td><?=$qoutation['subject']?></td>
                                                                 <td>
                                                                 <?php
                                                                     if ($qoutation['quotation_order_status'] == 1) {

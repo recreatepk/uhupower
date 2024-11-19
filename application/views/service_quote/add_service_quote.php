@@ -1,4 +1,9 @@
+<?php
 
+$customer_id = isset($_GET['sup_cust_id']) ? $_GET['sup_cust_id'] : '';
+$complaint_id = isset($_GET['complaint_id']) ? $_GET['complaint_id'] : '';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +72,7 @@
                                                                             foreach ($suppliers as $customer) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$customer['sup_cus_id']?>"><?=$customer['sup_cus_company']?> - <?=$customer['sup_cus_name']?></option>
+                                                                        <option value="<?=$customer['sup_cus_id']?>" <?php if($customer_id == $customer['sup_cus_id']) { echo 'selected'; }else{ echo ''; }  ?>><?=$customer['sup_cus_company']?> - <?=$customer['sup_cus_name']?></option>
                                                                         <?php
                                                                     }
                                                                         ?>
@@ -85,7 +90,7 @@
                                                                             foreach ($complaints as $complaint) {
                                                                             
                                                                         ?>
-                                                                        <option value="<?=$complaint['complaint_id']?>"><?=$complaint['complaint_id']?> - <?=$complaint['complaint_description']?></option>
+                                                                        <option value="<?=$complaint['complaint_id']?>" <?php if($complaint_id == $complaint['complaint_id']) { echo 'selected'; }else{ echo ''; }  ?>><?=$complaint['complaint_id']?> - <?=$complaint['complaint_description']?></option>
                                                                         <?php
                                                                     }
                                                                         ?>

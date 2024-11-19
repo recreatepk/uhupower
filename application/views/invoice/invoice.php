@@ -125,7 +125,7 @@ if (!($office_data = $CI->cache->get($cache_key))) {
                                                                     </tr><!--end tr-->
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?  
+                                                                    <?php
                                                                         $count = 1;
                                                                         $taxed_amount = 0;
                                                                         $tax_inclusive = 0;

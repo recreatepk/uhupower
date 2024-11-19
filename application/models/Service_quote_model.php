@@ -136,8 +136,19 @@ class Service_quote_model extends CI_Model
 
 	public function Update_service_quote_service($service_quote_service, $service_quote_id)
 	{
-		$this->db->where('service_quote_id', $service_quote_id)
-			->update('service_quote_service', $service_quote_service);
+		if(!empty($this->db->select('*')
+                             			->from('service_quote_service')
+                             			->where('service_quote_id', $service_quote_id)
+                             			->where('render_service_id', $service_quote_service['render_service_id'])
+                             			->get()
+                             			->result_array()))
+                             			{
+					$this->db->where('service_quote_id', $service_quote_id)
+								->update('service_quote_service', $service_quote_service);
+		}else{
+				$this->db->insert('service_quote_service', $service_quote_service);
+		}
+
 	}
 
 	public function Change_status($status, $service_quote_id)

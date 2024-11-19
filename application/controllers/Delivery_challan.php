@@ -216,4 +216,20 @@ class Delivery_challan extends CI_Controller
 			redirect("Delivery_challan/recieve_dc/$po_id");
 		}
 	}
+
+	public function check_for_serial(){
+		$sr_no = $this->input->post('serial_number');
+		$product_id = $this->input->post('product_id');
+
+			$this->db->where('sr_no', $sr_no);
+			$this->db->where('product_id', $product_id);
+			$query = $this->db->get('unique_identifier');
+
+			if ($query->num_rows() > 0) {
+				echo json_encode(['status' => true]);  // sr_no exists
+			} else {
+				echo json_encode(['status' => false]);  // sr_no exists
+			}
+		
+	}
 }

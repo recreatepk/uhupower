@@ -227,7 +227,7 @@
 																		<div class="col-sm-12">
 
 																			<div class="form-group row">
-																				<div class="col-sm-6">
+																				<div class="col-sm-3">
 																					<label>Select Services needs to be
 																						Rendered *</label>
 																					<select
@@ -238,7 +238,7 @@
 																						<?php
 																						foreach ($services as $service) {
 																							?>
-																							<option <?= $retVal = ($service['service_id'] == $service_quote['render_service_id']) ? 'selected' : ''; ?>
+																							<option
 																								value="<?= $service['service_id'] ?>"><?= $service['service_name'] ?></option>
 
 																							<?php
@@ -250,11 +250,21 @@
 
 																				<div class="col-sm-3">
 																					<div class="form-group">
+																						<label>Qty *</label>
+																						<input type="text"
+																							   class="form-control"
+																							   name="qty"
+																							   value=""
+																							   required="">
+																					</div>
+																				</div>
+																				<div class="col-sm-3">
+																					<div class="form-group">
 																						<label>Cost *</label>
 																						<input type="text"
 																							   class="form-control"
 																							   name="cost"
-																							   value="<?= $service_quote['cost'] ?>"
+																							   value=""
 																							   required="">
 																					</div>
 																				</div>
@@ -264,7 +274,7 @@
 																						<input type="text"
 																							   class="form-control"
 																							   name="tax"
-																							   value="<?= $service_quote['tax'] ?>"
+																							   value=""
 																							   required="">
 																					</div>
 																				</div>
